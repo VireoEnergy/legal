@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Run on Sun</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1b1b1b;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1, h2, h3 {
+      color: #0077cc;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #666;
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Privacy Policy</h1>
+  <p><strong>Effective Date:</strong> January 2025</p>
+  <p>
+    Run on Sun (“the App”, “we”, “our”, “us”) is developed by Vireo Energy Pty Ltd. 
+    This Privacy Policy explains how we collect, use, and protect your information when you use the Run on Sun mobile application.
+  </p>
+
+  <h2>1. Information We Collect</h2>
+  <p>We value your privacy and minimise the data we collect. The App may collect:</p>
+  <ul>
+    <li><strong>Device information</strong> (such as operating system and device model) to ensure the app functions correctly.</li>
+    <li><strong>Location data</strong> (if you allow it) to provide accurate solar forecasts based on your site.</li>
+    <li><strong>App usage data</strong> (e.g., number of appliances added, notification settings) for analytics and performance improvements.</li>
+    <li>We do <strong>not</strong> collect personally identifiable information unless you explicitly provide it (e.g. via support contact).</li>
+  </ul>
+
+  <h2>2. How We Use Information</h2>
+  <p>We use collected data to:</p>
+  <ul>
+    <li>Provide solar forecasts and appliance scheduling features.</li>
+    <li>Improve app reliability and user experience.</li>
+    <li>Offer personalised insights and reminders based on your energy use and solar availability.</li>
+  </ul>
+
+  <h2>3. Data Storage and Security</h2>
+  <p>
+    We take reasonable steps to protect your information from unauthorised access, alteration, or disclosure.
+    Data is stored securely and is used solely to operate and improve the App.
+    We do not sell or share your data with third parties for marketing purposes.
+  </p>
+
+  <h2>4. In-App Purchases and Subscriptions</h2>
+  <p>
+    Purchases and subscriptions are managed securely through the Apple App Store or Google Play Store.
+    We do not store any payment information.  
+    Your subscription status is validated through the store provider’s system.
+  </p>
+
+  <h2>5. Third-Party Services</h2>
+  <p>
+    The App uses third-party APIs (e.g., Open Meteo for weather data) to deliver forecast information.
+    These providers have their own privacy policies, which we encourage you to review.
+  </p>
+
+  <h2>6. Your Rights and Choices</h2>
+  <p>You can:</p>
+  <ul>
+    <li>Disable location access at any time through your device settings.</li>
+    <li>Delete app data by uninstalling the App from your device.</li>
+    <li>Contact us for any data-related queries.</li>
+  </ul>
+
+  <h2>7. Disclaimer</h2>
+  <p>
+    All solar forecasts, energy savings, and appliance scheduling results are <strong>estimates</strong>. 
+    Actual outcomes may vary based on weather, system configuration, and usage patterns.  
+    Vireo Energy Pty Ltd takes no responsibility for differences between estimated and actual performance.
+  </p>
+
+  <h2>8. Contact Us</h2>
+  <p>
+    If you have questions about this Privacy Policy, please contact us at:  
+    <a href="mailto:contact@vireoenergy.com">contact@vireoenergy.com</a>
+  </p>
+
+  <footer>
+    <p>&copy; 2025 Vireo Energy Pty Ltd. All rights reserved.</p>
+    <p>
+      <a href="terms-of-service.html">Terms of Service</a> |
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>
