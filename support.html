@@ -606,7 +606,7 @@
     function searchLatLong() {
       const city = document.getElementById('cityInput').value.trim();
       if (city) {
-        const query = encodeURIComponent(city + ' latitude longitude decimal degrees');
+        const query = encodeURIComponent(city + ' latitude longitude signed decimal degrees');
         window.open('https://www.google.com/search?q=' + query, '_blank');
       }
     }
@@ -614,7 +614,7 @@
     function searchLatLongLocation() {
       const city = document.getElementById('cityInputLocation').value.trim();
       if (city) {
-        const query = encodeURIComponent(city + ' latitude longitude decimal degrees');
+        const query = encodeURIComponent(city + ' latitude longitude signed decimal degrees');
         window.open('https://www.google.com/search?q=' + query, '_blank');
       }
     }
