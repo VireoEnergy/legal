@@ -176,7 +176,7 @@
         <span class="app-name">OnSun</span>
       </div>
       <h1>Privacy Policy</h1>
-      <p class="sub">OnSun (“the App”) is operated by Vireo Energy Pty Ltd under licence from Adaptive Energy Group Pty Ltd • Effective date: 16 February 2026</p>
+      <p class="sub">OnSun (“the App”) is operated by Vireo Energy Pty Ltd under licence from Adaptive Energy Group Pty Ltd • Effective date: 1 March 2026</p>
     </header>
 
     <main role="main">
@@ -230,6 +230,12 @@
             <td>Processed by our forecast proxy and hosting providers as part of serving requests.</td>
           </tr>
           <tr>
+            <td class="k">Aggregate geo analytics</td>
+            <td>Approximate geographic region (~50&nbsp;km area) derived from forecast request coordinates, plus a daily request count</td>
+            <td>Service analytics and capacity planning</td>
+            <td>Stored in a database on our hosting infrastructure. Coordinates are rounded to a ~50&nbsp;km grid before storage — individual users cannot be identified from this data.</td>
+          </tr>
+          <tr>
             <td class="k">Device locale</td>
             <td>Language/region (e.g. <code>en-AU</code>)</td>
             <td>Formatting (dates, numbers); reverse geocoding language preference</td>
@@ -276,7 +282,7 @@
         <ul>
           <li><span class="k">Forecast requests:</span> used to compute solar production estimates and scheduling recommendations.</li>
           <li><span class="k">Local app data:</span> schedules, appliance settings, and history remain on-device unless you delete the app.</li>
-          <li><span class="k">Operational retention:</span> rate limiting counters may be stored temporarily (e.g. short-lived cache/counters).</li>
+          <li><span class="k">Operational retention:</span> rate limiting counters are stored temporarily (short-lived cache entries). Aggregate geo analytics — approximate geographic region and daily request counts — are retained in a database for up to 3 years for capacity planning. This data is not linked to individual users.</li>
         </ul>
         <p class="muted">
           We do not sell personal data and we do not use third-party advertising networks.
