@@ -76,13 +76,13 @@
 
     .nav-logo span {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       color: var(--text-primary);
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       align-items: center;
     }
 
@@ -98,36 +98,53 @@
       color: var(--accent-pink);
     }
 
-    /* Main Layout */
-    .page-wrapper {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 6rem 1.5rem 3rem;
-      position: relative;
+    .nav-cta {
+      background: linear-gradient(135deg, #ff4d8d 0%, #ff6b6b 100%);
+      color: white !important;
+      padding: 0.6rem 1.25rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease !important;
     }
 
-    /* Glow Effect */
-    .page-wrapper::before {
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 77, 141, 0.4);
+    }
+
+    /* Main Layout */
+    .support-section {
+      padding: 6rem 2rem;
+      background: var(--bg-secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .support-section::before {
       content: '';
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 60vh;
+      bottom: 0;
       background: var(--gradient-glow);
       pointer-events: none;
-      z-index: -1;
     }
 
-    /* Header Section */
-    .page-header {
+    .support-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Section Headers - Matching solar.html */
+    .section-header {
       text-align: center;
-      padding: 2rem 0 3rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
-    .page-tag {
+    .section-tag {
       display: inline-block;
       color: var(--accent-pink);
       font-weight: 600;
@@ -137,26 +154,22 @@
       margin-bottom: 1rem;
     }
 
-    .page-title {
-      font-size: clamp(2rem, 5vw, 2.5rem);
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 700;
-      margin-bottom: 0.75rem;
-      background: linear-gradient(135deg, #ff4d8d 0%, #ff6b6b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      margin-bottom: 1rem;
     }
 
-    .page-subtitle {
+    .section-subtitle {
       color: var(--text-secondary);
       font-size: 1.1rem;
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
     /* Content Sections */
-    section {
-      margin-top: 2.5rem;
+    .content-section {
+      margin-top: 3rem;
     }
 
     h2 {
@@ -428,30 +441,91 @@
       box-shadow: 0 8px 20px rgba(255, 77, 141, 0.3);
     }
 
-    /* Footer */
-    .footer {
+    /* Support Footer - Matching solar.html */
+    .support-footer {
       margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--bg-primary);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+
+    .footer-logo span {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-pink);
+    }
+
+    .footer-copyright {
       color: var(--text-muted);
       font-size: 0.875rem;
     }
 
-    .footer a {
-      color: var(--text-secondary);
+    /* Animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .footer a:hover {
-      color: var(--accent-pink);
-    }
-
-    .footer-divider {
-      color: var(--text-muted);
-      margin: 0 0.5rem;
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Mobile Responsive */
+    @media (max-width: 968px) {
+      .nav-links {
+        display: none;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 640px) {
       nav {
         padding: 0.75rem 1rem;
@@ -461,15 +535,11 @@
         font-size: 1rem;
       }
 
-      .nav-links a {
-        font-size: 0.85rem;
+      .support-section {
+        padding: 5rem 1rem;
       }
 
-      .page-wrapper {
-        padding: 5rem 1rem 2rem;
-      }
-
-      .page-title {
+      .section-title {
         font-size: 1.75rem;
       }
 
@@ -485,6 +555,10 @@
         padding: 0 1rem 1rem;
         font-size: 0.9rem;
       }
+
+      .support-footer {
+        padding: 2rem 1rem;
+      }
     }
   </style>
 </head>
@@ -493,63 +567,65 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">
+      <a href="solar.html" class="nav-logo">
         <img src="assets/image%20367.png" alt="OnSun Logo">
-        <span>OnSun</span>
+        <span>OnSun: Solar PV Forecaster &amp; Planner</span>
       </a>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#features">Features</a>
-        <a href="index.html#showcase">App</a>
-        <a href="index.html#download">Download</a>
+        <a href="solar.html#features">Features</a>
+        <a href="solar.html#showcase">App</a>
+        <a href="solar.html#download">Download</a>
+        <a href="support.html">Support</a>
         <a href="privacy-policy.html">Privacy</a>
-        <a href="terms-of-service.html">Terms</a>
+        <a href="solar.html#download" class="nav-cta">Get the App</a>
       </div>
     </div>
   </nav>
 
-  <div class="page-wrapper">
+  <section class="support-section" id="support">
+    <div class="support-container">
 
-    <header class="page-header">
-      <div class="page-tag">Help Center</div>
-      <h1 class="page-title">Support</h1>
-      <p class="page-subtitle">Get help with OnSun and learn how to maximize your solar savings</p>
-    </header>
-
-    <main role="main">
-      <section>
-        <h2>About OnSun</h2>
-        <p>OnSun helps households forecast solar generation and run appliances at peak solar times to reduce grid imports. It provides weather-based forecasts, projected savings estimates, and scheduling suggestions to help you make the most of your solar system.</p>
-        <p><strong>Important:</strong> OnSun does not control appliances automatically. You remain in control of when and how you operate your equipment.</p>
-      </section>
-
-      <div class="card card-gradient" role="note">
-        <h2>We're Here to Improve</h2>
-        <p>We're constantly working to make OnSun better for you. If the forecasting isn't quite right for your location, if the scheduling logic could be refined, or if you have ideas for new features — we'd love to hear from you.</p>
-        <p>Your feedback helps us build a smarter, more useful app. Please don't hesitate to reach out with any suggestions or issues you encounter.</p>
-        <a href="mailto:onsun.team@outlook.com" class="contact-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-          Contact us
-        </a>
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">Help Center</div>
+        <h1 class="section-title">Support</h1>
+        <p class="section-subtitle">Get help with OnSun and learn how to maximize your solar savings</p>
       </div>
 
-      <section>
-        <h2>Contact Us</h2>
-        <p>Have a question or need assistance? We're here to help.</p>
-        <a href="mailto:onsun.team@outlook.com" class="contact-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-          Contact us
-        </a>
-      </section>
+      <main role="main">
 
-      <section>
-        <h2>Frequently Asked Questions</h2>
+        <div class="content-section">
+          <h2>About OnSun</h2>
+          <p>OnSun helps households forecast solar generation and run appliances at peak solar times to reduce grid imports. It provides weather-based forecasts, projected savings estimates, and scheduling suggestions to help you make the most of your solar system.</p>
+          <p><strong>Important:</strong> OnSun does not control appliances automatically. You remain in control of when and how you operate your equipment.</p>
+        </div>
+
+        <div class="card card-gradient" role="note">
+          <h2>We're Here to Improve</h2>
+          <p>We're constantly working to make OnSun better for you. If the forecasting isn't quite right for your location, if the scheduling logic could be refined, or if you have ideas for new features — we'd love to hear from you.</p>
+          <p>Your feedback helps us build a smarter, more useful app. Please don't hesitate to reach out with any suggestions or issues you encounter.</p>
+          <a href="mailto:onsun.team@outlook.com" class="contact-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Contact us
+          </a>
+        </div>
+
+        <div class="content-section">
+          <h2>Contact Us</h2>
+          <p>Have a question or need assistance? We're here to help.</p>
+          <a href="mailto:onsun.team@outlook.com" class="contact-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Contact us
+          </a>
+        </div>
+
+        <div class="content-section">
+          <h2>Frequently Asked Questions</h2>
 
         <div class="faq-item">
           <h3>How do forecasts work?</h3>
@@ -771,26 +847,33 @@
           <p>Our scheduler treats the total energy needed as a flexible block that fits within your solar window. This approach works well for most households regardless of internal power variations.</p>
           <p>If you need detailed block-profile scheduling (for example, to avoid peak tariff periods or coordinate with home battery cycling), please contact us. Our app architecture supports this feature, and we'd welcome your feedback to prioritise it.</p>
         </div>
-      </section>
+        </div>
 
-      <div class="disclaimer" role="note">
-        <p><strong>Disclaimer:</strong> Forecasts and savings are estimates and may vary based on weather and usage. OnSun provides guidance only and does not guarantee specific energy savings or solar generation outcomes.</p>
-      </div>
-    </main>
+        <div class="disclaimer" role="note">
+          <p><strong>Disclaimer:</strong> Forecasts and savings are estimates and may vary based on weather and usage. OnSun provides guidance only and does not guarantee specific energy savings or solar generation outcomes.</p>
+        </div>
 
-    <div class="footer" role="contentinfo">
-      <div>© 2026 Vireo Energy Pty Ltd</div>
-      <div style="margin-top: 0.5rem;">
-        <a href="index.html">Home</a>
-        <span class="footer-divider">·</span>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <span class="footer-divider">·</span>
-        <a href="terms-of-service.html">Terms of Service</a>
-        <span class="footer-divider">·</span>
-        <a href="support.html">Support</a>
-      </div>
+      </main>
+
+      <footer class="support-footer" role="contentinfo">
+        <div class="footer-container">
+          <div class="footer-logo">
+            <img src="assets/image%20367.png" alt="OnSun Logo">
+            <span>OnSun: Solar PV Forecaster & Planner</span>
+          </div>
+          <div class="footer-links">
+            <a href="solar.html">Solar</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="support.html">Support</a>
+          </div>
+          <div class="footer-copyright">
+            © 2026 Vireo Energy Pty Ltd. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
-  </div>
+  </section>
 
   <script>
     function toggleAccordion(header) {
@@ -824,8 +907,27 @@
       }
     }
 
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
     // Allow Enter key to trigger search
     document.addEventListener('DOMContentLoaded', function() {
+      // Observe animated elements
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+
       const input = document.getElementById('cityInput');
       if (input) {
         input.addEventListener('keypress', function(e) {
