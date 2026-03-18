@@ -183,6 +183,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
+            isolation: isolate;
             padding: 1rem 2rem;
             background: rgba(10, 10, 26, 0.8);
             backdrop-filter: blur(20px);
@@ -252,6 +253,96 @@
         .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(255, 77, 141, 0.4);
+        }
+
+        /* Hamburger button — hidden on desktop */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1100;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        /* Animated X when open */
+        .nav-hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .nav-hamburger.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .nav-hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile dropdown */
+        @media (max-width: 768px) {
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 26, 0.98);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 1rem 1.5rem 1.5rem;
+                gap: 0;
+                z-index: 999;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-link-item {
+                padding: 0.85rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                font-size: 1rem !important;
+                color: var(--text-secondary);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.2s ease;
+            }
+
+            .nav-link-item:last-child {
+                border-bottom: none;
+            }
+
+            .nav-link-item:hover {
+                color: var(--accent-pink);
+            }
+
+            .nav-cta.nav-link-item {
+                margin-top: 0.75rem;
+                padding: 0.75rem 1.25rem !important;
+                text-align: center;
+                border-radius: 50px;
+                border-bottom: none;
+                background: var(--gradient-accent);
+                color: white !important;
+            }
         }
         
         /* Hero Section */
@@ -377,6 +468,7 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
+            white-space: nowrap;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
@@ -1162,9 +1254,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .nav-links {
-                display: none;
-            }
+            /* nav-links mobile handled by hamburger block above */
         }
         
         @media (max-width: 640px) {
@@ -1189,6 +1279,7 @@
             .cta-group .btn-primary {
                 width: 100%;
                 justify-content: center;
+                padding: 1rem 1.5rem;
             }
 
             .secondary-btn-wrapper {
@@ -1229,14 +1320,19 @@
                 <img src="assets/image%20367.png" alt="OnSun Logo">
                 <span>OnSun: Solar PV Forecaster & Planner</span>
             </a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#showcase">App</a>
-                <a href="#download">Download</a>
-                <a href="support.html">Support</a>
-                <a href="privacy-policy.html">Privacy</a>
-                <a href="#download" class="nav-cta">Get the App</a>
+            <div class="nav-links" id="nav-links">
+                <a href="#features" class="nav-link-item">Features</a>
+                <a href="#showcase" class="nav-link-item">App</a>
+                <a href="#download" class="nav-link-item">Download</a>
+                <a href="support.html" class="nav-link-item">Support</a>
+                <a href="privacy-policy.html" class="nav-link-item">Privacy</a>
+                <a href="#download" class="nav-cta nav-link-item">Get the App</a>
             </div>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -1525,6 +1621,25 @@
     </footer>
 
     <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('nav-hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', false);
+            });
+        });
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
