@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Support page for OnSun by Vireo Energy Pty Ltd." />
-  <title>OnSun Support</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support | OnSun Solar Forecast App</title>
+  <meta name="description" content="Get help with OnSun. Learn how to configure your solar settings, understand your forecast, and maximize your solar savings.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://onsun.app/support.html">
   <link rel="icon" type="image/png" href="assets/image%20367.png">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,36 +24,52 @@
       --text-primary: #ffffff;
       --text-secondary: #a0a0b8;
       --text-muted: #6b6b8a;
+      --gradient-accent: linear-gradient(135deg, #ff4d8d 0%, #ff6b6b 100%);
+      --gradient-hero: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0d0d24 100%);
       --gradient-glow: radial-gradient(ellipse at 50% 0%, rgba(255, 77, 141, 0.3) 0%, transparent 50%);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.6;
-      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* Navigation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Navigation (matches solar-guide.html) ── */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 1000;
       padding: 1rem 2rem;
-      background: rgba(10, 10, 26, 0.8);
+      background: rgba(10, 10, 26, 0.9);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
     }
-
+    nav.scrolled {
+      background: rgba(10, 10, 26, 0.97);
+      padding: 0.75rem 2rem;
+    }
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -60,32 +77,15 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .nav-logo {
       display: flex;
       align-items: center;
       gap: 0.75rem;
       text-decoration: none;
     }
-
-    .nav-logo img {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-    }
-
-    .nav-logo span {
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--text-primary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
+    .nav-logo img { width: 40px; height: 40px; border-radius: 10px; }
+    .nav-logo span { font-weight: 700; font-size: 1.25rem; color: var(--text-primary); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a {
       color: var(--text-secondary);
       text-decoration: none;
@@ -93,362 +93,398 @@
       font-size: 0.9rem;
       transition: color 0.3s ease;
     }
-
-    .nav-links a:hover {
-      color: var(--accent-pink);
-    }
-
+    .nav-links a:hover { color: var(--accent-pink); }
     .nav-cta {
-      background: linear-gradient(135deg, #ff4d8d 0%, #ff6b6b 100%);
+      background: var(--gradient-accent);
       color: white !important;
       padding: 0.6rem 1.25rem;
       border-radius: 50px;
       font-weight: 600;
       transition: all 0.3s ease !important;
     }
-
     .nav-cta:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(255, 77, 141, 0.4);
     }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--text-primary); border-radius: 2px;
+      transition: all 0.3s ease; transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Main Layout */
-    .support-section {
-      padding: 6rem 2rem;
-      background: var(--bg-secondary);
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none; flex-direction: column; align-items: stretch;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(10, 10, 26, 0.98);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1rem 1.5rem 1.5rem; gap: 0; z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-link-item {
+        padding: 0.85rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 1rem !important;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+      .nav-link-item:last-child { border-bottom: none; }
+      .nav-link-item:hover { color: var(--accent-pink); }
+      .nav-cta.nav-link-item {
+        margin-top: 0.75rem; padding: 0.75rem 1.25rem !important;
+        text-align: center; border-radius: 50px; border-bottom: none;
+        background: var(--gradient-accent); color: white !important;
+      }
+    }
+
+    /* ── Hero (matches solar-guide.html) ── */
+    .guide-hero {
       position: relative;
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 5rem;
       overflow: hidden;
     }
-
-    .support-section::before {
+    .guide-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .guide-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .guide-hero-bg::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--gradient-glow);
-      pointer-events: none;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 26, 0.5) 0%,
+        rgba(10, 10, 26, 0.65) 50%,
+        rgba(10, 10, 26, 0.95) 100%
+      );
     }
-
-    .support-container {
-      max-width: 900px;
-      margin: 0 auto;
+    .guide-hero-content {
       position: relative;
       z-index: 1;
-    }
-
-    /* Section Headers - Matching solar.html */
-    .section-header {
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
-      margin-bottom: 3rem;
+      animation: fadeInUp 1s ease-out;
+    }
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: var(--accent-pink);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .guide-hero-content h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .guide-hero-content h1 span {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .guide-hero-content .lead {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .section-tag {
+    /* ── Article / Content layout ── */
+    .support-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    /* Section heading style */
+    .support-body .section-tag {
       display: inline-block;
       color: var(--accent-pink);
       font-weight: 600;
       font-size: 0.875rem;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
+    .content-block {
+      margin-bottom: 3rem;
+    }
+
+    .content-block h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
       font-weight: 700;
       margin-bottom: 1rem;
+      line-height: 1.3;
     }
 
-    .section-subtitle {
-      color: var(--text-secondary);
+    .content-block h3 {
       font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Content Sections */
-    .content-section {
-      margin-top: 3rem;
-    }
-
-    h2 {
-      margin: 0 0 1rem;
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-weight: 600;
+      margin: 1.75rem 0 0.75rem;
       color: var(--text-primary);
     }
 
-    h3 {
-      margin: 0 0 0.75rem;
+    .content-block p {
+      color: var(--text-secondary);
       font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-primary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
     }
 
-    p {
-      margin: 0.75rem 0;
+    .content-block p:last-child { margin-bottom: 0; }
+
+    .content-block strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .content-block ul {
+      margin: 0.75rem 0 1rem 1.5rem;
+    }
+
+    .content-block li {
       color: var(--text-secondary);
+      font-size: 1rem;
       line-height: 1.7;
-    }
-
-    strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    ul {
-      margin: 0.75rem 0;
-      padding-left: 1.5rem;
-    }
-
-    li {
-      margin: 0.5rem 0;
-      color: var(--text-secondary);
-    }
-
-    a {
-      color: var(--accent-teal);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: var(--accent-pink);
-      text-decoration: underline;
+      margin-bottom: 0.5rem;
     }
 
     /* Cards */
     .card {
       background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
     }
 
     .card-gradient {
-      background: linear-gradient(135deg, rgba(255, 77, 141, 0.1) 0%, rgba(0, 212, 170, 0.08) 100%);
+      background: linear-gradient(135deg, rgba(255, 77, 141, 0.08) 0%, rgba(0, 212, 170, 0.06) 100%);
       border: 1px solid rgba(255, 77, 141, 0.15);
     }
 
     .card h2 {
-      margin: 0 0 1rem;
-      font-size: 1.125rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      background: linear-gradient(135deg, #ff4d8d 0%, #ff6b6b 100%);
+      margin-bottom: 0.75rem;
+      background: var(--gradient-accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    /* Contact Button */
+    .card p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p:last-of-type { margin-bottom: 0; }
+
+    /* Contact button */
     .contact-link {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      margin-top: 1rem;
+      margin-top: 1.25rem;
       padding: 0.75rem 1.5rem;
-      background: linear-gradient(135deg, #ff4d8d 0%, #ff6b6b 100%);
-      border: none;
+      background: var(--gradient-accent);
       border-radius: 50px;
       font-weight: 600;
       color: white;
       text-decoration: none;
+      font-size: 0.95rem;
       transition: all 0.3s ease;
     }
-
     .contact-link:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(255, 77, 141, 0.4);
-      text-decoration: none;
       color: white;
+      text-decoration: none;
     }
 
-    /* FAQ Items */
-    .faq-item {
-      margin-bottom: 2rem;
-    }
-
-    .faq-item h3 {
-      color: var(--text-primary);
-      font-size: 1.1rem;
-      margin-bottom: 0.75rem;
+    /* Divider between sections */
+    .section-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 3rem 0;
     }
 
     /* Accordion */
-    .accordion {
-      margin: 1rem 0;
-    }
+    .accordion { margin: 1.25rem 0; }
 
     .accordion-item {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
+      border-radius: 14px;
       margin-bottom: 0.75rem;
       overflow: hidden;
       transition: all 0.3s ease;
     }
-
-    .accordion-item:hover {
-      border-color: rgba(255, 77, 141, 0.2);
-    }
-
+    .accordion-item:hover { border-color: rgba(255, 77, 141, 0.2); }
     .accordion-item.active {
       border-color: rgba(255, 77, 141, 0.3);
-      background: rgba(255, 77, 141, 0.05);
+      background: rgba(255, 77, 141, 0.04);
     }
-
     .accordion-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 1rem 1.25rem;
       cursor: pointer;
-      transition: background 0.2s ease;
       user-select: none;
+      transition: background 0.2s ease;
     }
-
-    .accordion-header:hover {
-      background: rgba(255, 255, 255, 0.03);
-    }
-
+    .accordion-header:hover { background: rgba(255, 255, 255, 0.02); }
     .accordion-header span {
       font-weight: 600;
       font-size: 0.95rem;
       color: var(--text-primary);
     }
-
     .accordion-icon {
-      width: 20px;
-      height: 20px;
+      width: 20px; height: 20px;
       transition: transform 0.2s ease;
       flex-shrink: 0;
       margin-left: 0.5rem;
       color: var(--accent-pink);
     }
-
-    .accordion-item.active .accordion-icon {
-      transform: rotate(180deg);
-    }
-
+    .accordion-item.active .accordion-icon { transform: rotate(180deg); }
     .accordion-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      transition: max-height 0.35s ease;
     }
-
-    .accordion-item.active .accordion-content {
-      max-height: 600px;
-    }
-
+    .accordion-item.active .accordion-content { max-height: 700px; }
     .accordion-body {
       padding: 0 1.25rem 1.25rem;
       color: var(--text-secondary);
       font-size: 0.95rem;
-      line-height: 1.7;
+      line-height: 1.75;
     }
+    .accordion-body p { margin-bottom: 0.75rem; color: var(--text-secondary); }
+    .accordion-body p:last-child { margin-bottom: 0; }
+    .accordion-body ul { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .accordion-body li { margin-bottom: 0.4rem; }
 
-    .setting-term {
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
+    .setting-term { font-weight: 600; color: var(--text-primary); }
     .setting-value {
       font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
       background: rgba(255, 77, 141, 0.15);
       color: var(--accent-pink);
-      padding: 0.15rem 0.5rem;
+      padding: 0.1rem 0.45rem;
       border-radius: 4px;
       font-size: 0.875rem;
     }
 
-    /* Tip Box */
+    /* Tip box */
     .tip-box {
-      background: rgba(0, 212, 170, 0.1);
+      background: rgba(0, 212, 170, 0.08);
       border-left: 3px solid var(--accent-teal);
       padding: 1rem 1.25rem;
-      margin: 1rem 0;
-      border-radius: 0 8px 8px 0;
+      margin: 1.25rem 0;
+      border-radius: 0 10px 10px 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
     }
-
-    .tip-box strong {
-      color: var(--accent-teal);
-    }
+    .tip-box strong { color: var(--accent-teal); }
 
     /* Disclaimer */
     .disclaimer {
-      background: rgba(255, 255, 255, 0.03);
-      border-left: 3px solid rgba(255, 77, 141, 0.5);
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid rgba(255, 77, 141, 0.4);
       padding: 1rem 1.25rem;
       margin: 2rem 0;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .disclaimer p {
-      margin: 0;
+      border-radius: 0 10px 10px 0;
       font-size: 0.9rem;
+      color: var(--text-secondary);
     }
 
-    /* Lat/Long Finder */
+    /* Lat/long finder */
     .latlong-finder {
       background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
-      padding: 1rem;
+      padding: 1rem 1.25rem;
       margin-top: 1rem;
     }
-
-    .latlong-input-row {
-      display: flex;
-      gap: 0.5rem;
-    }
-
+    .latlong-finder p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .latlong-input-row { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
     .latlong-input {
       flex: 1;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 8px;
-      padding: 0.625rem 1rem;
+      padding: 0.6rem 1rem;
       color: var(--text-primary);
       font-size: 0.95rem;
-      outline: none;
       font-family: inherit;
+      outline: none;
     }
-
-    .latlong-input::placeholder {
-      color: var(--text-muted);
-    }
-
-    .latlong-input:focus {
-      border-color: var(--accent-pink);
-    }
-
+    .latlong-input::placeholder { color: var(--text-muted); }
+    .latlong-input:focus { border-color: var(--accent-pink); }
     .latlong-btn {
-      background: linear-gradient(135deg, #ff4d8d 0%, #ff6b6b 100%);
+      background: var(--gradient-accent);
       border: none;
       border-radius: 8px;
-      padding: 0.625rem 1.25rem;
+      padding: 0.6rem 1.25rem;
       color: white;
       font-weight: 600;
       font-size: 0.95rem;
       cursor: pointer;
+      font-family: inherit;
       transition: all 0.3s ease;
     }
-
     .latlong-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(255, 77, 141, 0.3);
     }
 
-    /* Support Footer - Matching solar.html */
-    .support-footer {
-      margin-top: 4rem;
+    /* Footer */
+    footer {
       padding: 3rem 2rem;
-      background: var(--bg-primary);
+      background: var(--bg-secondary);
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
-
     .footer-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -458,492 +494,411 @@
       flex-wrap: wrap;
       gap: 2rem;
     }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .footer-logo img {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-    }
-
-    .footer-logo span {
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
-
+    .footer-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .footer-logo img { width: 36px; height: 36px; border-radius: 8px; }
+    .footer-logo span { font-weight: 700; color: var(--text-primary); }
+    .footer-links { display: flex; gap: 2rem; }
     .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.3s ease;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.9rem; transition: color 0.3s ease;
     }
+    .footer-links a:hover { color: var(--accent-pink); }
+    .footer-copyright { color: var(--text-muted); font-size: 0.875rem; }
 
-    .footer-links a:hover {
-      color: var(--accent-pink);
-    }
-
-    .footer-copyright {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-    }
-
-    /* Animations */
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .animate-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 968px) {
-      .nav-links {
-        display: none;
-      }
-
-      .footer-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
-
+    /* Responsive */
     @media (max-width: 640px) {
-      nav {
-        padding: 0.75rem 1rem;
-      }
-
-      .nav-logo span {
-        font-size: 1rem;
-      }
-
-      .support-section {
-        padding: 5rem 1rem;
-      }
-
-      .section-title {
-        font-size: 1.75rem;
-      }
-
-      .card {
-        padding: 1.25rem;
-      }
-
-      .accordion-header span {
-        font-size: 0.9rem;
-      }
-
-      .accordion-body {
-        padding: 0 1rem 1rem;
-        font-size: 0.9rem;
-      }
-
-      .support-footer {
-        padding: 2rem 1rem;
-      }
+      .guide-hero { padding: 7rem 1.5rem 3.5rem; min-height: 55vh; }
+      .guide-hero-content h1 { font-size: 1.85rem; }
+      .support-body { padding: 3rem 1.5rem 4rem; }
+      .card { padding: 1.5rem; }
+      .footer-container { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
+  <nav id="navbar">
     <div class="nav-container">
-      <a href="solar.html" class="nav-logo">
+      <a href="index.html" class="nav-logo">
         <img src="assets/image%20367.png" alt="OnSun Logo">
-        <span>OnSun: Solar PV Forecaster &amp; Planner</span>
+        <span>OnSun</span>
       </a>
-      <div class="nav-links">
-        <a href="index.html#features">Features</a>
-        <a href="solar-guide.html">Solar Guide</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="support.html">Support</a>
-        <a href="index.html#download" class="nav-cta">Get the App</a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#features" class="nav-link-item">Features</a>
+        <a href="solar-guide.html" class="nav-link-item">Solar Guide</a>
+        <a href="index.html#faq" class="nav-link-item">FAQ</a>
+        <a href="support.html" class="nav-link-item">Support</a>
+        <a href="index.html#download" class="nav-cta nav-link-item">Get the App</a>
       </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <section class="support-section" id="support">
-    <div class="support-container">
-
-      <div class="section-header animate-on-scroll">
-        <div class="section-tag">Help Center</div>
-        <h1 class="section-title">Support</h1>
-        <p class="section-subtitle">Get help with OnSun and learn how to maximize your solar savings</p>
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="guide-hero-bg">
+      <img src="assets/siwawut-phoophinyo-JlhvFEVMwng-unsplash.jpg" alt="Solar panel installer working on a rooftop array" width="1600" height="900">
+    </div>
+    <div class="guide-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Support</span>
       </div>
-
-      <main role="main">
-
-        <div class="content-section">
-          <h2>About OnSun</h2>
-          <p>OnSun helps households forecast solar generation and run appliances at peak solar times to reduce grid imports. It provides weather-based forecasts, projected savings estimates, and scheduling suggestions to help you make the most of your solar system.</p>
-          <p><strong>Important:</strong> OnSun does not control appliances automatically. You remain in control of when and how you operate your equipment.</p>
-        </div>
-
-        <div class="card card-gradient" role="note">
-          <h2>We're Here to Improve</h2>
-          <p>We're constantly working to make OnSun better for you. If the forecasting isn't quite right for your location, if the scheduling logic could be refined, or if you have ideas for new features — we'd love to hear from you.</p>
-          <p>Your feedback helps us build a smarter, more useful app. Please don't hesitate to reach out with any suggestions or issues you encounter.</p>
-          <a href="mailto:onsun.team@outlook.com" class="contact-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            Contact us
-          </a>
-        </div>
-
-        <div class="content-section">
-          <h2>Contact Us</h2>
-          <p>Have a question or need assistance? We're here to help.</p>
-          <a href="mailto:onsun.team@outlook.com" class="contact-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            Contact us
-          </a>
-        </div>
-
-        <div class="content-section">
-          <h2>Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-          <h3>How do forecasts work?</h3>
-          <p>OnSun uses weather data and solar forecasting algorithms to estimate your solar generation throughout the day. Forecasts consider factors like cloud cover, time of year, and your location. Because solar generation depends on many uncontrollable factors—such as weather, shading, and system performance—forecasts are estimates only and real-world results may differ.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>What forecast interval does OnSun use?</h3>
-          <p>OnSun's forecasting models analyse weather and solar radiation data to estimate your solar generation. The time resolution of your forecast depends on your location.</p>
-          <p>In most regions, forecasts are provided in hourly intervals. In areas with higher-resolution meteorological coverage, our models can produce more granular 15-minute interval forecasts. Your location therefore determines the time step resolution you see in the app.</p>
-          <p>OnSun automatically uses the highest resolution available for your region to give you the most accurate forecast possible.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Configuring your solar settings</h3>
-          <p>For the most accurate solar forecasts, it's worth taking a few minutes to configure your solar system settings. Here's what each setting means and how to find the right values:</p>
-
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>System Size</span>
-                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-body">
-                  <p>The total capacity of your solar panels in kilowatts (kW). This is usually shown on your solar quote, inverter display, or monitoring app.</p>
-                  <p><span class="setting-term">Typical range:</span> <span class="setting-value">3.0</span> to <span class="setting-value">10.0</span> kW</p>
-                  <p>Common sizes: 6.6 kW (very popular), 5.0 kW, 10 kW for larger homes.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Panel Tilt</span>
-                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-body">
-                  <p>The angle your panels are tilted from horizontal. Flat roof = 0°, vertical wall = 90°.</p>
-                  <p><span class="setting-term">Quick guide:</span></p>
-                  <ul>
-                    <li>Typical pitched roof: <span class="setting-value">22° - 30°</span></li>
-                    <li>Flat roof with tilt frames: <span class="setting-value">10° - 15°</span></li>
-                    <li>Flat roof (no tilt): <span class="setting-value">0°</span></li>
-                  </ul>
-                  <p>Your installer's documentation or a simple measurement with your phone's level app can give you this.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Panel Direction (Azimuth)</span>
-                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-body">
-                  <p>The compass direction your panels face. <span class="setting-value">0°</span> = North, <span class="setting-value">180°</span> = South.</p>
-                  <p><span class="setting-term">Common directions:</span></p>
-                  <ul>
-                    <li>North: <span class="setting-value">0°</span> (best for year-round generation)</li>
-                    <li>East: <span class="setting-value">90°</span> (good morning sun)</li>
-                    <li>West: <span class="setting-value">270°</span> (good afternoon sun)</li>
-                    <li>North-East: <span class="setting-value">45°</span></li>
-                    <li>North-West: <span class="setting-value">315°</span></li>
-                  </ul>
-                  <p>Use your phone's compass app while standing in front of your panels to get this value.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Performance Ratio</span>
-                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-body">
-                  <p>A factor accounting for real-world losses: shading, dust, inverter efficiency, temperature, and wiring. Think of it as "system efficiency."</p>
-                  <p><span class="setting-term">Typical values:</span></p>
-                  <ul>
-                    <li>Excellent system: <span class="setting-value">0.85 - 0.90</span></li>
-                    <li>Good system (default): <span class="setting-value">0.80 - 0.85</span></li>
-                    <li>System with some shading: <span class="setting-value">0.75 - 0.80</span></li>
-                  </ul>
-                  <p>Most users can leave this at the default <span class="setting-value">0.85</span>. Lower it if you have significant shading or an older system.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Base Load</span>
-                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-body">
-                  <p>Your home's minimum power consumption (in kW) when no major appliances are running. This is what's always on: fridges, standby devices, routers, etc.</p>
-                  <p><span class="setting-term">How to estimate:</span></p>
-                  <ul>
-                    <li>Check your smart meter or inverter app at night when everything is "off"</li>
-                    <li>Typical homes: <span class="setting-value">0.3 - 0.6</span> kW (300-600W)</li>
-                    <li>Homes with always-on AC/pool pumps: <span class="setting-value">0.8 - 1.5</span> kW</li>
-                  </ul>
-                  <p>This helps OnSun calculate how much solar is actually available to "soak up" with your appliances.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Inverter Limit (Optional)</span>
-                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-body">
-                  <p>The maximum AC output your inverter can deliver. Only needed if your inverter is significantly smaller than your panel capacity (oversized system).</p>
-                  <p><span class="setting-term">Example:</span> 8 kW of panels with a 5 kW inverter would have a limit of <span class="setting-value">5.0</span> kW.</p>
-                  <p>If your inverter and panel size are similar, you can leave this blank.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Location</span>
-                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-body">
-                  <p>Your home's location determines sun angles and local weather data. Accurate location = accurate forecasts.</p>
-                  <p><span class="setting-term">Tips:</span></p>
-                  <ul>
-                    <li>Use the location button to auto-detect</li>
-                    <li>If you're on the edge of a climate zone, being precise matters more</li>
-                    <li>Update this if you move or take the device to a holiday home</li>
-                  </ul>
-
-                  <p style="margin-top: 1rem;"><span class="setting-term">Prefer not to share your location?</span></p>
-                  <p>You can manually enter your latitude and longitude coordinates instead of using location services. This gives you full control over your location data while still getting accurate forecasts.</p>
-                  <p style="font-size: 0.875rem; color: var(--text-muted);">Example: San Francisco is approximately <span class="setting-value">37.77</span> latitude, <span class="setting-value">-122.42</span> longitude.</p>
-
-                  <div class="latlong-finder" style="margin-top: 1rem;">
-                    <p style="margin-bottom: 0.5rem;"><strong>Need to find your coordinates?</strong></p>
-                    <p style="font-size: 0.875rem; margin-bottom: 0.75rem; color: var(--text-muted);">Type your city below and we'll search Google for the latitude longitude in decimal degrees:</p>
-                    <div class="latlong-input-row">
-                      <input type="text" id="cityInputLocation" placeholder="e.g., San Francisco" class="latlong-input">
-                      <button onclick="searchLatLongLocation()" class="latlong-btn">Go</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tip-box">
-            <strong>Pro tip for better forecasts:</strong> After changing settings, check your actual solar production against the forecast for a few days. If the forecast is consistently too high or low, try adjusting your Performance Ratio up or down by 0.05 until it matches reality.
-          </div>
-
-          <p style="margin-top: 1rem;">Still unsure about a setting? Check your solar installer's paperwork or your inverter's display/app.</p>
-
-          <p style="margin-top: 1.5rem;"><strong>Is the forecast significantly off?</strong> If your actual solar production is consistently very different from what OnSun predicts, we'd like to hear from you. Send us screenshots of your solar app alongside OnSun's forecast, along with your configuration details and location. This data helps us improve the forecasting model.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>How are savings calculated?</h3>
-          <p>Savings estimates are based on your forecasted solar generation and typical energy rates. The app compares running appliances during peak solar times versus importing from the grid. These are projections only; actual savings will depend on your specific energy plan, usage patterns, and real-world solar output.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Subscription & billing</h3>
-          <p>OnSun offers free and paid subscription tiers. Subscriptions are managed entirely through your device's app store (Apple App Store or Google Play Store). This means:</p>
-          <ul>
-            <li>Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period</li>
-            <li>Billing is handled by Apple or Google; we do not process or store payment information</li>
-            <li>You can manage or cancel your subscription in your Apple ID or Google account settings</li>
-            <li>No refunds are offered for partial periods, except where required by law</li>
-          </ul>
-        </div>
-
-        <div class="faq-item">
-          <h3>How to restore purchases</h3>
-          <p>If you've previously purchased a subscription or upgraded to Pro, you can restore your purchase through the app. Open OnSun, go to Settings, and tap "Restore Purchases." If you continue to have issues, ensure you're signed in with the same Apple ID (iOS) or Google account (Android) used for the original purchase.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Location accuracy guidance</h3>
-          <p>For accurate solar forecasts, OnSun needs your approximate location to calculate sun angles and local weather conditions. The app requests location permission when you first set up. You can update your location at any time in Settings. If you prefer not to share your precise location, you can manually enter your coordinates (latitude and longitude).</p>
-
-          <div class="latlong-finder">
-            <p style="margin-bottom: 0.5rem;"><strong>Need to find your coordinates?</strong></p>
-            <p style="font-size: 0.875rem; margin-bottom: 0.75rem; color: var(--text-muted);">Type your city below and we'll search Google for the latitude longitude in decimal degrees:</p>
-            <div class="latlong-input-row">
-              <input type="text" id="cityInput" placeholder="e.g., San Francisco" class="latlong-input">
-              <button onclick="searchLatLong()" class="latlong-btn">Go</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <h3>Block load profiles</h3>
-          <p>OnSun uses simplified appliance load profiles to make solar scheduling straightforward. Real-world appliances often have variable power draw—heating elements cycle on and off, motors ramp up, and rinse cycles use less power than wash cycles.</p>
-          <p>While "block" or variable profiles don't perfectly match our steady-state estimates, every appliance behaves differently. Modeling each unique profile would create an overly complex experience that detracts from OnSun's core purpose: helping you align appliance usage with your solar generation.</p>
-          <p>Our scheduler treats the total energy needed as a flexible block that fits within your solar window. This approach works well for most households regardless of internal power variations.</p>
-          <p>If you need detailed block-profile scheduling (for example, to avoid peak tariff periods or coordinate with home battery cycling), please contact us. Our app architecture supports this feature, and we'd welcome your feedback to prioritise it.</p>
-        </div>
-        </div>
-
-        <div class="disclaimer" role="note">
-          <p><strong>Disclaimer:</strong> Forecasts and savings are estimates and may vary based on weather and usage. OnSun provides guidance only and does not guarantee specific energy savings or solar generation outcomes.</p>
-        </div>
-
-      </main>
-
-      <footer class="support-footer" role="contentinfo">
-        <div class="footer-container">
-          <div class="footer-logo">
-            <img src="assets/image%20367.png" alt="OnSun Logo">
-            <span>OnSun: Solar PV Forecaster & Planner</span>
-          </div>
-          <div class="footer-links">
-            <a href="solar.html">Solar</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="terms-of-service.html">Terms of Service</a>
-            <a href="support.html">Support</a>
-          </div>
-          <div class="footer-copyright">
-            © 2026 Vireo Energy Pty Ltd. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <h1>Help &amp; <span>Support</span></h1>
+      <p class="lead">
+        Get help configuring OnSun, understanding your solar forecast, and making the most of every ray of sunlight.
+      </p>
     </div>
   </section>
 
+  <!-- Support content -->
+  <div class="support-body">
+
+    <!-- About -->
+    <div class="content-block animate-on-scroll">
+      <div class="section-tag">About OnSun</div>
+      <h2>What OnSun Does</h2>
+      <p>OnSun helps households forecast solar generation and run appliances at peak solar times to reduce grid imports. It provides weather-based forecasts, projected savings estimates, and scheduling suggestions to help you make the most of your solar system.</p>
+      <p><strong>Note:</strong> OnSun does not control appliances automatically. You remain in control of when and how you operate your equipment.</p>
+    </div>
+
+    <!-- Feedback card -->
+    <div class="card card-gradient animate-on-scroll">
+      <h2>We're Here to Improve</h2>
+      <p>We're constantly working to make OnSun better. If the forecasting isn't quite right for your location, if the scheduling logic could be refined, or if you have ideas for new features — we'd love to hear from you.</p>
+      <p>Your feedback directly shapes the app. Please don't hesitate to reach out.</p>
+      <a href="mailto:onsun.team@outlook.com" class="contact-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        Email us
+      </a>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- FAQ section -->
+    <div class="content-block animate-on-scroll">
+      <div class="section-tag">Common Questions</div>
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>How do forecasts work?</h3>
+      <p>OnSun uses weather data and solar forecasting algorithms to estimate your solar generation throughout the day. Forecasts consider factors like cloud cover, time of year, and your location. Because solar generation depends on many uncontrollable factors — weather, shading, and system performance — forecasts are estimates and real-world results may differ.</p>
+
+      <h3>What forecast interval does OnSun use?</h3>
+      <p>In most regions, forecasts are provided in hourly intervals. In areas with higher-resolution meteorological coverage, the models produce 15-minute interval forecasts. Your location determines the time resolution you see in the app. OnSun automatically uses the highest resolution available for your region.</p>
+
+      <h3>How are savings calculated?</h3>
+      <p>Savings estimates are based on your forecasted solar generation and typical energy rates. The app compares running appliances during peak solar times versus importing from the grid. These are projections only; actual savings will depend on your specific energy plan, usage patterns, and real-world solar output.</p>
+
+      <h3>Subscription and billing</h3>
+      <p>OnSun offers free and paid subscription tiers. Subscriptions are managed through your device's app store (Apple App Store or Google Play). This means:</p>
+      <ul>
+        <li>Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period</li>
+        <li>Billing is handled by Apple or Google — we do not process or store payment information</li>
+        <li>You can manage or cancel your subscription in your Apple ID or Google account settings</li>
+        <li>No refunds for partial periods, except where required by law</li>
+      </ul>
+
+      <h3>How to restore purchases</h3>
+      <p>Open OnSun, go to Settings, and tap "Restore Purchases." Ensure you're signed in with the same Apple ID (iOS) or Google account (Android) used for the original purchase.</p>
+
+      <h3>Block load profiles</h3>
+      <p>OnSun uses simplified appliance load profiles to make scheduling straightforward. Real-world appliances often have variable power draw — heating elements cycle, motors ramp up, and rinse cycles differ from wash cycles. Our scheduler treats the total energy needed as a flexible block within your solar window, which works well for most households.</p>
+      <p>If you need detailed block-profile scheduling (for example, to avoid peak tariff periods or coordinate with home battery cycling), please get in touch. This feature is supported by our architecture and community interest helps us prioritise it.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Settings guide -->
+    <div class="content-block animate-on-scroll">
+      <div class="section-tag">Configuration Guide</div>
+      <h2>Configuring Your Solar Settings</h2>
+      <p>For the most accurate forecasts, take a few minutes to configure your system settings. Here's what each setting means and how to find the right values.</p>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>System Size</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p>The total capacity of your solar panels in kilowatts (kW). Shown on your solar quote, inverter display, or monitoring app.</p>
+              <p><span class="setting-term">Typical range:</span> <span class="setting-value">3.0</span> to <span class="setting-value">10.0</span> kW</p>
+              <p>Common sizes: 6.6 kW (very popular), 5.0 kW, 10 kW for larger homes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Panel Tilt</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p>The angle your panels are tilted from horizontal. Flat roof = 0°, vertical wall = 90°.</p>
+              <p><span class="setting-term">Quick guide:</span></p>
+              <ul>
+                <li>Typical pitched roof: <span class="setting-value">22° - 30°</span></li>
+                <li>Flat roof with tilt frames: <span class="setting-value">10° - 15°</span></li>
+                <li>Flat roof (no tilt): <span class="setting-value">0°</span></li>
+              </ul>
+              <p>Your installer's documentation or your phone's level app can give you this.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Panel Direction (Azimuth)</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p>The compass direction your panels face. <span class="setting-value">0°</span> = North, <span class="setting-value">180°</span> = South.</p>
+              <p><span class="setting-term">Common directions:</span></p>
+              <ul>
+                <li>North: <span class="setting-value">0°</span> — best for year-round generation</li>
+                <li>East: <span class="setting-value">90°</span> — good morning sun</li>
+                <li>West: <span class="setting-value">270°</span> — good afternoon sun</li>
+                <li>North-East: <span class="setting-value">45°</span></li>
+                <li>North-West: <span class="setting-value">315°</span></li>
+              </ul>
+              <p>Use your phone's compass while standing in front of your panels.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Performance Ratio</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p>A factor accounting for real-world losses: shading, dust, inverter efficiency, temperature, and wiring losses. Think of it as overall system efficiency.</p>
+              <p><span class="setting-term">Typical values:</span></p>
+              <ul>
+                <li>Excellent system: <span class="setting-value">0.85 - 0.90</span></li>
+                <li>Good system (default): <span class="setting-value">0.80 - 0.85</span></li>
+                <li>System with shading: <span class="setting-value">0.75 - 0.80</span></li>
+              </ul>
+              <p>Most users can leave this at <span class="setting-value">0.85</span>. Lower it if you have significant shading or an older system.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Base Load</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p>Your home's minimum power consumption (in kW) when no major appliances are running — fridges, standby devices, routers, etc.</p>
+              <p><span class="setting-term">How to estimate:</span></p>
+              <ul>
+                <li>Check your smart meter or inverter app late at night when everything is off</li>
+                <li>Typical homes: <span class="setting-value">0.3 - 0.6</span> kW (300-600W)</li>
+                <li>Homes with always-on AC or pool pumps: <span class="setting-value">0.8 - 1.5</span> kW</li>
+              </ul>
+              <p>This helps OnSun calculate how much solar is available for your appliances.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Inverter Limit (Optional)</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p>The maximum AC output your inverter can deliver. Only needed if your inverter is significantly smaller than your panel capacity.</p>
+              <p><span class="setting-term">Example:</span> 8 kW of panels with a 5 kW inverter would have a limit of <span class="setting-value">5.0</span> kW.</p>
+              <p>If your inverter and panel sizes are similar, leave this blank.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Location</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p>Your home's location determines sun angles and local weather data. Accurate location means accurate forecasts.</p>
+              <p><span class="setting-term">Tips:</span></p>
+              <ul>
+                <li>Use the location button to auto-detect</li>
+                <li>If you're on the edge of a climate zone, precision matters more</li>
+                <li>Update this if you move or use the app at a holiday home</li>
+              </ul>
+
+              <p style="margin-top: 1rem;"><span class="setting-term">Prefer not to share your location?</span></p>
+              <p>You can manually enter your latitude and longitude coordinates. This gives you full control while still getting accurate forecasts.</p>
+              <p style="font-size: 0.875rem; color: var(--text-muted);">Example: San Francisco is approximately <span class="setting-value">37.77</span> latitude, <span class="setting-value">-122.42</span> longitude.</p>
+
+              <div class="latlong-finder">
+                <p><strong>Find your coordinates</strong></p>
+                <p>Type your city and we'll search for the latitude and longitude in decimal degrees.</p>
+                <div class="latlong-input-row">
+                  <input type="text" id="cityInputLocation" placeholder="e.g., San Francisco" class="latlong-input">
+                  <button onclick="searchLatLongLocation()" class="latlong-btn">Go</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <strong>Pro tip:</strong> After changing settings, check your actual solar production against the forecast for a few days. If the forecast is consistently too high or low, try adjusting your Performance Ratio up or down by 0.05 until it aligns with reality.
+      </div>
+
+      <p>Still unsure about a setting? Check your solar installer's paperwork or your inverter's display or monitoring app.</p>
+
+      <p style="margin-top: 1.25rem;"><strong>Is the forecast significantly off?</strong> If your actual solar production consistently differs from OnSun's prediction, we'd like to hear from you. Send screenshots of your solar app alongside OnSun's forecast, along with your configuration details and location. This data helps us improve the forecasting model.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Location accuracy -->
+    <div class="content-block animate-on-scroll">
+      <div class="section-tag">Location</div>
+      <h2>Location Accuracy Guidance</h2>
+      <p>For accurate solar forecasts, OnSun needs your approximate location to calculate sun angles and local weather conditions. The app requests location permission when you first set up. You can update your location at any time in Settings. If you prefer not to share your precise location, you can manually enter your coordinates.</p>
+
+      <div class="latlong-finder">
+        <p><strong>Find your coordinates</strong></p>
+        <p>Type your city and we'll search for the latitude and longitude in decimal degrees.</p>
+        <div class="latlong-input-row">
+          <input type="text" id="cityInput" placeholder="e.g., Sydney" class="latlong-input">
+          <button onclick="searchLatLong()" class="latlong-btn">Go</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer animate-on-scroll">
+      <strong>Disclaimer:</strong> Forecasts and savings figures are estimates and may vary based on weather and usage. OnSun provides guidance only and does not guarantee specific energy savings or solar generation outcomes.
+    </div>
+
+    <!-- Contact -->
+    <div class="card card-gradient animate-on-scroll">
+      <h2>Contact Us</h2>
+      <p>Have a question or need assistance? We're here to help.</p>
+      <a href="mailto:onsun.team@outlook.com" class="contact-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        onsun.team@outlook.com
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/image%20367.png" alt="OnSun Logo">
+        <span>OnSun</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="solar-guide.html">Solar Guide</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="support.html">Support</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 Vireo Energy Pty Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
   <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Accordion
     function toggleAccordion(header) {
       const item = header.parentElement;
       const wasActive = item.classList.contains('active');
-
-      // Close all accordions
-      document.querySelectorAll('.accordion-item').forEach(function(el) {
-        el.classList.remove('active');
-      });
-
-      // Open clicked one if it wasn't already open
-      if (!wasActive) {
-        item.classList.add('active');
-      }
+      document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+      if (!wasActive) item.classList.add('active');
     }
 
+    // Lat/long helpers
     function searchLatLong() {
       const city = document.getElementById('cityInput').value.trim();
       if (city) {
-        const query = encodeURIComponent(city + ' latitude longitude signed decimal degrees');
-        window.open('https://www.google.com/search?q=' + query, '_blank');
+        window.open('https://www.google.com/search?q=' + encodeURIComponent(city + ' latitude longitude decimal degrees'), '_blank');
       }
     }
-
     function searchLatLongLocation() {
       const city = document.getElementById('cityInputLocation').value.trim();
       if (city) {
-        const query = encodeURIComponent(city + ' latitude longitude signed decimal degrees');
-        window.open('https://www.google.com/search?q=' + query, '_blank');
+        window.open('https://www.google.com/search?q=' + encodeURIComponent(city + ' latitude longitude decimal degrees'), '_blank');
       }
     }
 
-    // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    // Allow Enter key to trigger search
-    document.addEventListener('DOMContentLoaded', function() {
-      // Observe animated elements
-      document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-      });
-
+    document.addEventListener('DOMContentLoaded', () => {
       const input = document.getElementById('cityInput');
-      if (input) {
-        input.addEventListener('keypress', function(e) {
-          if (e.key === 'Enter') {
-            searchLatLong();
-          }
-        });
-      }
-
-      const locationInput = document.getElementById('cityInputLocation');
-      if (locationInput) {
-        locationInput.addEventListener('keypress', function(e) {
-          if (e.key === 'Enter') {
-            searchLatLongLocation();
-          }
-        });
-      }
+      if (input) input.addEventListener('keypress', e => { if (e.key === 'Enter') searchLatLong(); });
+      const locInput = document.getElementById('cityInputLocation');
+      if (locInput) locInput.addEventListener('keypress', e => { if (e.key === 'Enter') searchLatLongLocation(); });
     });
   </script>
 
