@@ -6,7 +6,7 @@
     <title>OnSun — Solar Forecast App | Stop Paying High Electricity Bills</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Still paying high electricity bills with solar panels? OnSun forecasts your solar production 7 days ahead so you can run appliances at peak sun hours, boost self-consumption, and cut your power bill. Free for any solar system — works worldwide.">
+    <meta name="description" content="Still paying high electricity bills with solar panels? OnSun forecasts your solar production 7 days ahead so you can run appliances at peak sun hours, boost self-consumption, and cut your power bill. Free for any solar system. Works worldwide.">
     <meta name="keywords" content="solar forecast app, high electricity bill solar, why is my solar not saving money, solar panel savings, best time to use appliances with solar, solar self-consumption, reduce electricity bill, solar energy planner, solar production forecast, solar forecasting, solar app Australia, solar app UK, solar app USA, solar savings calculator, solar power optimizer, when to run appliances solar, solar export problem, maximize solar savings, electricity bill too high, solar panels not saving money">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="author" content="Vireo Energy Pty Ltd">
@@ -70,7 +70,7 @@
           "name": "Why is my electricity bill still high after installing solar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most solar households export 50–70% of the energy they generate back to the grid — often for a fraction of the retail price. Your panels produce the most power midday, but your home typically uses the most energy in the morning and evening. This timing mismatch means you're buying expensive grid power at night while giving away cheap solar during the day. OnSun solves this by forecasting your solar output 7 days ahead and telling you exactly when to run appliances to use your own free energy instead."
+            "text": "Most solar households export 50-70% of the energy they generate back to the grid, often for a fraction of the retail price. Your panels produce the most power midday, but your home typically uses the most energy in the morning and evening. This timing mismatch means you're buying expensive grid power at night while giving away cheap solar during the day. OnSun solves this by forecasting your solar output 7 days ahead and telling you exactly when to run appliances to use your own free energy instead."
           }
         },
         {
@@ -78,7 +78,7 @@
           "name": "How do I get more savings from my solar panels?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The single biggest thing you can do is increase your self-consumption — the percentage of solar energy you actually use in your home rather than exporting to the grid. Shift energy-hungry appliances like washing machines, dishwashers, dryers, pool pumps, and EV chargers into your peak solar window (typically 9am–3pm). OnSun gives you a personalised 7-day solar forecast and recommends the best times to run each appliance, so you can capture more of the energy your panels produce."
+            "text": "The single biggest thing you can do is increase your self-consumption: the percentage of solar energy you actually use in your home rather than exporting to the grid. Shift energy-hungry appliances like washing machines, dishwashers, dryers, pool pumps, and EV chargers into your peak solar window (typically 9am-3pm). OnSun gives you a personalised 7-day solar forecast and recommends the best times to run each appliance, so you can capture more of the energy your panels produce."
           }
         },
         {
@@ -94,7 +94,7 @@
           "name": "Does OnSun work with any solar system?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. OnSun works with any grid-connected solar PV system regardless of brand, inverter type, or panel size. You just enter your system details — panel capacity, orientation, and tilt — and OnSun calculates your expected production using location-specific solar irradiance models. It works in Australia, the United States, the United Kingdom, Europe, and anywhere solar panels are installed."
+            "text": "Yes. OnSun works with any grid-connected solar PV system regardless of brand, inverter type, or panel size. You just enter your system details (panel capacity, orientation, and tilt) and OnSun calculates your expected production using location-specific solar irradiance models. It works in Australia, the United States, the United Kingdom, Europe, and anywhere solar panels are installed."
           }
         }
       ]
@@ -103,7 +103,7 @@
 
     <!-- Social Media Meta Tags for LinkedIn, Twitter, Facebook -->
     <meta property="og:title" content="OnSun — Solar Forecast App | Stop Paying High Electricity Bills">
-    <meta property="og:description" content="Still paying high electricity bills after installing solar? OnSun forecasts your solar output 7 days ahead and tells you exactly when to run appliances. Free app — works with any solar system worldwide.">
+    <meta property="og:description" content="Still paying high electricity bills after installing solar? OnSun forecasts your solar output 7 days ahead and tells you exactly when to run appliances. Free app for any solar system worldwide.">
     <meta property="og:image" content="https://onsun.app/assets/Frame%201000004539.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -115,7 +115,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OnSun — Solar Forecast App | Stop Paying High Electricity Bills">
-    <meta name="twitter:description" content="Still paying high electricity bills after installing solar? OnSun forecasts your solar output 7 days ahead and tells you exactly when to run appliances. Free app — works with any solar system worldwide.">
+    <meta name="twitter:description" content="Still paying high electricity bills after installing solar? OnSun forecasts your solar output 7 days ahead and tells you exactly when to run appliances. Free app for any solar system worldwide.">
     <meta name="twitter:image" content="https://onsun.app/assets/Frame%201000004539.png">
     
     <!-- Favicon -->
@@ -1254,129 +1254,88 @@
             font-size: 0.875rem;
         }
         
-        /* Solar Guide Section */
-        .solar-guide {
-            padding: 6rem 2rem;
+        /* Guide CTA Banner */
+        .guide-banner {
+            padding: 5rem 2rem;
             background: var(--bg-secondary);
             position: relative;
+            overflow: hidden;
         }
 
-        .solar-guide-container {
-            max-width: 800px;
+        .guide-banner-container {
+            max-width: 1100px;
             margin: 0 auto;
-        }
-
-        .solar-guide h2 {
-            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .solar-guide h2 span {
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .guide-intro {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: 3rem;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-
-        .guide-problem {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 24px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .guide-problem h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .guide-problem p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .guide-stat-row {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2.5rem 0;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
 
-        .guide-stat {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 20px;
+        .guide-banner-photo {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            max-height: 360px;
         }
 
-        .guide-stat-number {
-            font-size: 2rem;
-            font-weight: 800;
+        .guide-banner-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            max-height: 360px;
+            border-radius: 24px;
+        }
+
+        .guide-banner-content h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.25;
+        }
+
+        .guide-banner-content h2 span {
             background: var(--gradient-accent);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.2;
-            margin-bottom: 0.25rem;
         }
 
-        .guide-stat-label {
-            font-size: 0.85rem;
+        .guide-banner-content p {
             color: var(--text-secondary);
-            line-height: 1.4;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
-        .guide-solution {
-            background: linear-gradient(135deg, rgba(255, 77, 141, 0.08) 0%, rgba(0, 212, 170, 0.06) 100%);
-            border: 1px solid rgba(255, 77, 141, 0.15);
-            border-radius: 24px;
-            padding: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .guide-solution h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .guide-solution p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .guide-solution .solution-cta {
+        .guide-banner-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            margin-top: 1.5rem;
             color: var(--accent-pink);
             font-weight: 600;
+            font-size: 1rem;
             text-decoration: none;
             transition: gap 0.3s ease;
         }
 
-        .guide-solution .solution-cta:hover {
-            gap: 0.75rem;
+        .guide-banner-link:hover {
+            gap: 0.85rem;
+        }
+
+        @media (max-width: 968px) {
+            .guide-banner-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .guide-banner-photo {
+                max-height: 280px;
+            }
+
+            .guide-banner-photo img {
+                max-height: 280px;
+            }
         }
 
         /* FAQ Section */
@@ -1460,16 +1419,6 @@
         }
 
         @media (max-width: 640px) {
-            .guide-stat-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .guide-problem,
-            .guide-solution {
-                padding: 1.5rem;
-            }
-
             .faq-question {
                 font-size: 1rem;
                 padding: 1.25rem 1.5rem;
@@ -1477,10 +1426,6 @@
 
             .faq-answer-inner {
                 padding: 0 1.5rem 1.25rem;
-            }
-
-            .solar-guide {
-                padding: 4rem 1.5rem;
             }
 
             .faq {
@@ -1618,7 +1563,7 @@
             <div class="nav-links" id="nav-links">
                 <a href="#features" class="nav-link-item">Features</a>
                 <a href="#showcase" class="nav-link-item">App</a>
-                <a href="#solar-guide" class="nav-link-item">Solar Guide</a>
+                <a href="solar-guide.html" class="nav-link-item">Solar Guide</a>
                 <a href="#faq" class="nav-link-item">FAQ</a>
                 <a href="#download" class="nav-link-item">Download</a>
                 <a href="support.html" class="nav-link-item">Support</a>
@@ -1878,63 +1823,18 @@
         </div>
     </section>
 
-    <!-- Solar Savings Guide -->
-    <section class="solar-guide" id="solar-guide">
-        <div class="solar-guide-container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-tag">Solar Savings Guide</div>
-                <h2>Installed Solar Panels But <span>Still Paying High Electricity Bills?</span></h2>
+    <!-- Solar Savings Guide Banner -->
+    <section class="guide-banner" id="solar-guide">
+        <div class="guide-banner-container animate-on-scroll">
+            <div class="guide-banner-photo">
+                <img src="assets/vivint-solar-9CalgkSRZb8-unsplash.jpg" alt="Home with solar panels and landscaped garden on a sunny day" width="800" height="500" loading="lazy">
             </div>
-
-            <p class="guide-intro animate-on-scroll">
-                You're not alone. Millions of solar households around the world are frustrated because their electricity bills barely dropped after spending thousands on panels. Here's why — and what you can do about it.
-            </p>
-
-            <div class="guide-problem animate-on-scroll">
-                <h3>The Self-Consumption Problem</h3>
+            <div class="guide-banner-content">
+                <h2>Installed Solar But <span>Still Paying High Bills?</span></h2>
                 <p>
-                    Your solar panels generate the most electricity between roughly 9am and 3pm. But if you're at work or not running major appliances during those hours, most of that energy flows straight back to the grid. Your energy retailer pays you a small feed-in tariff — often just 5–8 cents per kWh — then sells it back to you at 25–40+ cents per kWh in the evening when you actually need it.
+                    Most solar households export 50-70% of the energy they generate and buy it back later at full price. Our free guide explains why your bills haven't dropped, and exactly how to fix it.
                 </p>
-            </div>
-
-            <div class="guide-stat-row animate-on-scroll">
-                <div class="guide-stat">
-                    <div class="guide-stat-number">50–70%</div>
-                    <div class="guide-stat-label">of solar energy exported by the average household</div>
-                </div>
-                <div class="guide-stat">
-                    <div class="guide-stat-number">5–8x</div>
-                    <div class="guide-stat-label">price gap between feed-in and retail rates</div>
-                </div>
-                <div class="guide-stat">
-                    <div class="guide-stat-number">$600+</div>
-                    <div class="guide-stat-label">potential yearly savings from higher self-consumption</div>
-                </div>
-            </div>
-
-            <div class="guide-problem animate-on-scroll">
-                <h3>The Timing Mismatch Nobody Told You About</h3>
-                <p>
-                    Solar installers talk about system size and payback periods, but they rarely mention the single biggest factor in your savings: <strong>when</strong> you use electricity. Running your dishwasher at 7pm instead of 11am can be the difference between free solar power and expensive grid power. Multiply that across your washing machine, dryer, pool pump, hot water system, and EV charger — and you're looking at hundreds of dollars a year in unnecessary bills.
-                </p>
-            </div>
-
-            <div class="guide-problem animate-on-scroll">
-                <h3>Why "Just Use It During the Day" Isn't Enough</h3>
-                <p>
-                    The advice to run appliances during the day is directionally right, but vague. Solar output varies enormously day to day — a cloudy Tuesday might produce half the energy of a sunny Wednesday. If you run your dryer on the wrong day or at the wrong time, you're still pulling from the grid and paying full price. What you need is a <strong>forecast</strong> — a prediction of exactly how much solar energy you'll have, and exactly when to use it.
-                </p>
-            </div>
-
-            <div class="guide-solution animate-on-scroll">
-                <h3>How OnSun Fixes This</h3>
-                <p>
-                    OnSun is a free solar forecasting app that predicts your panel output 7 days in advance using real weather data and your specific system configuration. It tells you the best day and time to schedule each appliance so you use the maximum amount of your own solar power. No hardware required, no complicated setup — just enter your panel details and start planning.
-                </p>
-                <p>
-                    Households using OnSun typically increase their self-consumption from around 30% to 60–80%, which can mean $400–$800+ in extra savings each year depending on your system size and electricity rates.
-                </p>
-                <a href="#download" class="solution-cta">Start saving with OnSun →</a>
+                <a href="solar-guide.html" class="guide-banner-link">Read the Solar Savings Guide →</a>
             </div>
         </div>
     </section>
@@ -1958,7 +1858,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            This is the most common frustration for solar owners, and it almost always comes down to one thing: <strong>timing</strong>. Your panels produce energy during the middle of the day, but most households use the bulk of their electricity in the morning and evening. The surplus solar gets exported to the grid for a low feed-in tariff, and then you buy that same energy back at full retail price a few hours later. The fix isn't more panels — it's using the energy you already generate at the right time. OnSun forecasts your daily solar production so you can shift washing, cooking, heating, and charging into your peak solar window and stop giving your energy away.
+                            This is the most common frustration for solar owners, and it almost always comes down to one thing: <strong>timing</strong>. Your panels produce energy during the middle of the day, but most households use the bulk of their electricity in the morning and evening. The surplus solar gets exported to the grid for a low feed-in tariff, and then you buy that same energy back at full retail price a few hours later. The fix isn't more panels. It's using the energy you already generate at the right time. OnSun forecasts your daily solar production so you can shift washing, cooking, heating, and charging into your peak solar window and stop giving your energy away.
                         </div>
                     </div>
                 </div>
@@ -1970,7 +1870,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            The most impactful thing you can do is increase your <strong>self-consumption rate</strong> — the percentage of solar energy you use in your home rather than exporting to the grid. Most households sit at 25–35% self-consumption without trying. By shifting flexible loads like washing machines, dryers, dishwashers, pool pumps, and EV chargers into the solar window, you can push this to 60–80%. That's the difference between saving a few dollars a week and saving several hundred dollars a year. OnSun makes this easy by giving you a 7-day production forecast and recommending the best times to schedule each appliance based on your specific system and local weather.
+                            The most impactful thing you can do is increase your <strong>self-consumption rate</strong>: the percentage of solar energy you use in your home rather than exporting to the grid. Most households sit at 25-35% self-consumption without trying. By shifting flexible loads like washing machines, dryers, dishwashers, pool pumps, and EV chargers into the solar window, you can push this to 60-80%. That's the difference between saving a few dollars a week and saving several hundred dollars a year. OnSun makes this easy by giving you a 7-day production forecast and recommending the best times to schedule each appliance based on your specific system and local weather.
                         </div>
                     </div>
                 </div>
@@ -1982,7 +1882,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            The textbook answer is 10am–2pm, and on a clear summer day that's broadly right. But the real answer changes every day. Cloud cover, season, panel orientation, and even shading from nearby trees all affect when your panels produce the most energy. A partly cloudy day might have a narrow 2-hour window of strong production, while a clear winter day might peak earlier or later than summer. OnSun uses detailed weather and solar irradiance data for your exact location to predict your production curve each day. Instead of guessing, you get a specific recommendation — "Run your washing machine at 11am Wednesday" — so you hit the sweet spot every time.
+                            The textbook answer is 10am to 2pm, and on a clear summer day that's broadly right. But the real answer changes every day. Cloud cover, season, panel orientation, and even shading from nearby trees all affect when your panels produce the most energy. A partly cloudy day might have a narrow 2-hour window of strong production, while a clear winter day might peak earlier or later than summer. OnSun uses detailed weather and solar irradiance data for your exact location to predict your production curve each day. Instead of guessing, you get a specific recommendation like "Run your washing machine at 11am Wednesday" so you hit the sweet spot every time.
                         </div>
                     </div>
                 </div>
@@ -1994,7 +1894,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Solar forecasting combines several data sources to predict how much electricity your panels will produce. It starts with weather forecasts — cloud cover, temperature, and humidity — then factors in your panel specifications (size, tilt, orientation) and your geographic location to calculate expected solar irradiance. OnSun uses state-of-the-art forecasting models that predict output at 15-minute to 1-hour intervals depending on your location. The result is a personalised production curve for each day of the coming week, so you can plan your energy usage around the sun rather than guessing.
+                            Solar forecasting combines several data sources to predict how much electricity your panels will produce. It starts with weather forecasts (cloud cover, temperature, and humidity), then factors in your panel specifications (size, tilt, orientation) and your geographic location to calculate expected solar irradiance. OnSun uses state-of-the-art forecasting models that predict output at 15-minute to 1-hour intervals depending on your location. The result is a personalised production curve for each day of the coming week, so you can plan your energy usage around the sun rather than guessing.
                         </div>
                     </div>
                 </div>
@@ -2006,7 +1906,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes — OnSun works with any grid-connected solar PV system regardless of brand, inverter type, or panel size. You don't need any special hardware or monitoring equipment. Just enter your system details (panel capacity, roof orientation, and tilt angle) and OnSun calculates your expected production using location-specific solar irradiance models. It works in Australia, the United States, the United Kingdom, Europe, and anywhere in the world where solar panels are installed. Whether you have a 3kW system on a townhouse or a 15kW array on a large home, OnSun gives you the forecast you need.
+                            Yes. OnSun works with any grid-connected solar PV system regardless of brand, inverter type, or panel size. You don't need any special hardware or monitoring equipment. Just enter your system details (panel capacity, roof orientation, and tilt angle) and OnSun calculates your expected production using location-specific solar irradiance models. It works in Australia, the United States, the United Kingdom, Europe, and anywhere in the world where solar panels are installed. Whether you have a 3kW system on a townhouse or a 15kW array on a large home, OnSun gives you the forecast you need.
                         </div>
                     </div>
                 </div>
