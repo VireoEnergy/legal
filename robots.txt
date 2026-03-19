@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onsun.app/sitemap.xml
