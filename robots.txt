@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-# Block assets from being indexed directly
-Disallow: /assets/
-
-Sitemap: https://onsun.app/sitemap.xml
