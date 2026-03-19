@@ -66,6 +66,48 @@
     }
     </script>
 
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is my electricity bill still high after installing solar panels?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most solar households export 50-70% of the energy they generate back to the grid for a low feed-in tariff, then buy electricity back at full retail price in the evening. The key issue is timing: your panels produce energy midday, but most usage happens in the morning and evening. Shifting appliances like washing machines, dishwashers, and EV chargers into peak solar hours dramatically increases the amount of free energy you use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is solar self-consumption and why does it matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Self-consumption is the percentage of solar energy you use directly in your home rather than exporting to the grid. A typical household has 25-35% self-consumption. By shifting flexible appliance loads into the solar window, you can reach 60-80%. This can mean the difference between saving a few dollars a week and saving several hundred dollars a year from the same panels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which appliances should I run during solar hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Focus on high-draw flexible loads: washing machines (500W), dishwashers (1,200W), clothes dryers (2,000-5,000W), EV chargers (2,000-7,000W), pool pumps (750-1,500W), and air conditioners (1,000-3,500W). These appliances draw significant power and can usually run at any time of day without disrupting your routine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does a solar forecast app help reduce electricity bills?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A solar forecast app like OnSun predicts your panel output 7 days ahead using weather data and your system configuration. Instead of guessing whether it's a good day to run the dryer, you get a specific recommendation like 'run your washing machine at 11am Wednesday'. This precision helps you consistently use your own solar energy instead of buying from the grid."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Social Media -->
     <meta property="og:title" content="Why Your Solar Panels Aren't Saving You Money (And How to Fix It)">
     <meta property="og:description" content="Installed solar panels but your electricity bill is still high? Learn why most solar households waste 50-70% of the energy they generate.">
@@ -396,6 +438,48 @@
             line-height: 1.4;
         }
 
+        /* App callout (minimal) */
+        .app-callout {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin: 0 0 3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .app-callout:hover {
+            border-color: rgba(255,77,141,0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        .app-callout img {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            flex-shrink: 0;
+        }
+        .app-callout-text {
+            flex: 1;
+        }
+        .app-callout-text strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+        .app-callout-text span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .app-callout-arrow {
+            color: var(--accent-pink);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
         /* Highlight box */
         .highlight-box {
             background: linear-gradient(135deg, rgba(255,77,141,0.08) 0%, rgba(0,212,170,0.06) 100%);
@@ -431,9 +515,17 @@
             align-items: center;
             gap: 1rem;
         }
-        .appliance-card .appliance-emoji {
-            font-size: 1.75rem;
+        .appliance-card .appliance-icon {
+            width: 44px; height: 44px;
             flex-shrink: 0;
+            background: rgba(255,77,141,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .appliance-card .appliance-icon img {
+            width: 24px; height: 24px;
         }
         .appliance-card .appliance-info strong {
             display: block;
@@ -502,10 +594,12 @@
             text-align: center;
         }
         .app-showcase-phone img {
-            max-width: 300px;
+            max-width: 280px;
             width: 100%;
+            height: auto;
             border-radius: 32px;
             box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 100px rgba(255,77,141,0.15);
+            object-fit: contain;
         }
 
         /* Download CTA */
@@ -612,6 +706,8 @@
             .guide-hero { padding: 7rem 1.5rem 3.5rem; min-height: 60vh; }
             .guide-hero-content h1 { font-size: 1.85rem; }
             .stat-callout { grid-template-columns: 1fr; gap: 1rem; }
+            .app-callout { flex-direction: column; text-align: center; padding: 1.25rem; }
+            .app-callout-arrow { display: none; }
             .appliance-grid { grid-template-columns: 1fr; }
             .photo-break { margin: 2.5rem -1.5rem; border-radius: 16px; max-height: 300px; }
             .highlight-box { padding: 1.5rem; }
@@ -692,6 +788,15 @@
             </div>
         </div>
 
+        <a href="index.html#download" class="app-callout animate-on-scroll">
+            <img src="assets/image%20367.png" alt="OnSun app icon" width="56" height="56">
+            <div class="app-callout-text">
+                <strong>OnSun solves this with solar forecasting</strong>
+                <span>See exactly when to run your appliances to use your own solar power. Free 3-day trial.</span>
+            </div>
+            <div class="app-callout-arrow">→</div>
+        </a>
+
         <h2>The Timing Mismatch Nobody Warned You About</h2>
 
         <p>
@@ -729,45 +834,45 @@
 
         <div class="appliance-grid animate-on-scroll">
             <div class="appliance-card">
-                <div class="appliance-emoji">🧺</div>
+                <div class="appliance-icon"><img src="assets/icons/washing-machine.svg" alt="Washing machine icon" width="24" height="24"></div>
                 <div class="appliance-info">
                     <strong>Washing Machine</strong>
                     <span>500W for 1-2 hours</span>
                 </div>
             </div>
             <div class="appliance-card">
-                <div class="appliance-emoji">🫧</div>
+                <div class="appliance-icon"><img src="assets/icons/dishwasher.svg" alt="Dishwasher icon" width="24" height="24"></div>
                 <div class="appliance-info">
                     <strong>Dishwasher</strong>
                     <span>1,200W for 1-2 hours</span>
                 </div>
             </div>
             <div class="appliance-card">
-                <div class="appliance-emoji">👕</div>
+                <div class="appliance-icon"><img src="assets/icons/dryer.svg" alt="Clothes dryer icon" width="24" height="24"></div>
                 <div class="appliance-info">
                     <strong>Clothes Dryer</strong>
                     <span>2,000-5,000W for 1-2 hours</span>
                 </div>
             </div>
             <div class="appliance-card">
-                <div class="appliance-emoji">🚗</div>
+                <div class="appliance-icon"><img src="assets/icons/ev-charger.svg" alt="EV charger icon" width="24" height="24"></div>
                 <div class="appliance-info">
                     <strong>EV Charger</strong>
                     <span>2,000-7,000W for 2-8 hours</span>
                 </div>
             </div>
             <div class="appliance-card">
-                <div class="appliance-emoji">🏊</div>
+                <div class="appliance-icon"><img src="assets/icons/pool-pump.svg" alt="Pool pump icon" width="24" height="24"></div>
                 <div class="appliance-info">
                     <strong>Pool Pump</strong>
                     <span>750-1,500W for 4-8 hours</span>
                 </div>
             </div>
             <div class="appliance-card">
-                <div class="appliance-emoji">🔥</div>
+                <div class="appliance-icon"><img src="assets/icons/air-conditioner.svg" alt="Air conditioner icon" width="24" height="24"></div>
                 <div class="appliance-info">
-                    <strong>Hot Water System</strong>
-                    <span>2,400-4,800W for 1-3 hours</span>
+                    <strong>Air Conditioner</strong>
+                    <span>1,000-3,500W for 2-6 hours</span>
                 </div>
             </div>
         </div>
@@ -845,10 +950,10 @@
         <div class="highlight-box animate-on-scroll">
             <h3>How OnSun Helps You Do All of This</h3>
             <p>
-                OnSun is a free solar forecasting app that gives you a personalised 7-day production forecast based on your specific panels, location, and local weather. It recommends the best times to run each appliance and shows you exactly how much of your solar energy each load will consume.
+                OnSun is a solar forecasting app that gives you a personalised 7-day production forecast based on your specific panels, location, and local weather. It recommends the best times to run each appliance and shows you how much of your solar energy each load will consume.
             </p>
             <p>
-                No special hardware. No monitoring equipment. Just enter your system details, add your appliances, and start planning. OnSun works with any grid-connected solar PV system, anywhere in the world.
+                No special hardware. No monitoring equipment. Just enter your system details, add your appliances, and start planning. OnSun works with any grid-connected solar PV system, anywhere in the world. Try it free for 3 days.
             </p>
         </div>
 
@@ -871,7 +976,7 @@
                 </ul>
             </div>
             <div class="app-showcase-phone">
-                <img src="assets/iMockup%20-%20iPhone%2015%20Pro%20Max%20(6).png" alt="OnSun app showing a 7-day solar production forecast with appliance scheduling recommendations" width="600" height="1200" loading="lazy">
+                <img src="assets/iMockup%20-%20iPhone%2015%20Pro%20Max%20(6).png" alt="OnSun app showing a 7-day solar production forecast with appliance scheduling recommendations" loading="lazy">
             </div>
         </div>
     </section>
@@ -882,7 +987,7 @@
             <img src="assets/image%20367.png" alt="OnSun Logo" class="dl-logo">
             <h2>Start Using Your Solar Smarter</h2>
             <p>
-                Download OnSun for free and see exactly when to run your appliances for maximum savings. No hardware needed.
+                Download OnSun and see exactly when to run your appliances for maximum savings. Free 3-day trial. No hardware needed.
             </p>
             <a href="https://apps.apple.com/app/apple-store/id6758746647?pt=128390520&ct=website&mt=8" class="app-store-btn" target="_blank">
                 <svg viewBox="0 0 24 24" fill="currentColor">
