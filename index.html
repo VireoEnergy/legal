@@ -611,15 +611,15 @@
             width: 100%;
             max-width: 350px;
             margin: 0 auto;
+            aspect-ratio: 918 / 1900;
             animation: float 6s ease-in-out infinite;
         }
-        
         .phone-mockup img {
-            display: block;
-            max-width: 100%;
-            width: auto;
-            height: auto;
-            margin: 0 auto;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             border-radius: 40px;
         }
         
@@ -1113,6 +1113,13 @@
             align-self: start;
         }
 
+        .showcase-image-inner {
+            aspect-ratio: 918 / 1900;
+            max-width: 320px;
+            margin: 0 auto;
+            position: relative;
+        }
+
         .showcase-image::before {
             content: '';
             position: absolute;
@@ -1127,14 +1134,13 @@
         }
 
         .showcase-image img {
-            display: block;
-            max-width: 320px;
-            width: auto;
-            height: auto;
-            margin: 0 auto;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             border-radius: 32px;
             transition: all 0.4s ease;
-            position: relative;
             z-index: 1;
         }
 
@@ -1611,12 +1617,10 @@
                 text-align: center;
             }
             
-            .showcase-image img {
-                display: block;
+            .showcase-image-inner {
                 max-width: 280px;
-                width: auto;
-                height: auto;
-                margin: 0 auto;
+            }
+            .showcase-image img {
                 border-radius: 24px;
             }
 
@@ -1906,7 +1910,9 @@
                     </div>
                 </div>
                 <div class="showcase-image">
-                    <img src="assets/iPhone%2015%20Pro%20Max%20(3).png" alt="OnSun solar plan screen with weekly forecast and savings estimate" loading="lazy">
+                    <div class="showcase-image-inner">
+                        <img src="assets/iPhone%2015%20Pro%20Max%20(3).png" alt="OnSun solar plan screen with weekly forecast and savings estimate" loading="lazy">
+                    </div>
                 </div>
             </div>
             
@@ -1928,7 +1934,9 @@
                     </div>
                 </div>
                 <div class="showcase-image">
-                    <img src="assets/iPhone%2015%20Pro%20Max%20(4).png" alt="OnSun usage planning screen with appliance scheduling and solar coverage" loading="lazy">
+                    <div class="showcase-image-inner">
+                        <img src="assets/iPhone%2015%20Pro%20Max%20(4).png" alt="OnSun usage planning screen with appliance scheduling and solar coverage" loading="lazy">
+                    </div>
                 </div>
             </div>
 
@@ -1940,7 +1948,9 @@
                     </p>
                 </div>
                 <div class="showcase-image">
-                    <img src="assets/iMockup%20-%20iPhone%2015%20Pro%20Max%20(7).png" alt="OnSun app showing best times to run appliances based on solar forecast" loading="lazy">
+                    <div class="showcase-image-inner">
+                        <img src="assets/iMockup%20-%20iPhone%2015%20Pro%20Max%20(7).png" alt="OnSun app showing best times to run appliances based on solar forecast" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
