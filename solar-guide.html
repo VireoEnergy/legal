@@ -34,7 +34,9 @@
       "image": "https://onsun.app/assets/watt-a-lot-gqpuuF3a2tY-unsplash.jpg",
       "author": {
         "@type": "Person",
-        "name": "Dr Steven Percy"
+        "name": "Dr Steven Percy",
+        "url": "https://www.linkedin.com/in/steven-percy/",
+        "sameAs": "https://www.linkedin.com/in/steven-percy/"
       },
       "publisher": {
         "@type": "Organization",
@@ -46,6 +48,8 @@
       },
       "datePublished": "2026-03-19",
       "dateModified": "2026-03-19",
+      "wordCount": 2000,
+      "keywords": "solar panels, electricity bills, solar self-consumption, solar forecast, appliance scheduling",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://onsun.app/solar-guide.html"
@@ -114,6 +118,19 @@
           }
         }
       ]
+    }
+    </script>
+
+    <!-- Structured Data - Speakable WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".article-intro"]
+      },
+      "url": "https://onsun.app/solar-guide.html"
     }
     </script>
 
@@ -349,6 +366,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        .read-time {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0.5rem auto 1.25rem;
+            letter-spacing: 0.04em;
         }
         .guide-hero-content .lead {
             font-size: 1.2rem;
@@ -764,6 +787,7 @@
                 <span>Solar Savings Guide</span>
             </div>
             <h1>Why Your Solar Panels<br><span>Aren't Saving You Money</span></h1>
+            <p class="read-time">8 min read &middot; By Dr Steven Percy</p>
             <p class="lead">
                 You spent thousands on solar panels expecting lower electricity bills. But the bills barely moved. Here's why it's happening to millions of households around the world, and what you can actually do about it.
             </p>
@@ -775,7 +799,7 @@
 
         <h2>The Uncomfortable Truth About Residential Solar</h2>
 
-        <p>
+        <p class="article-intro">
             Solar panels are one of the best investments a homeowner can make. The technology works, the savings are real, and the environmental benefits are undeniable. But there's a catch that most solar installers don't emphasise: <strong>the savings depend almost entirely on when you use electricity, not just how much your panels produce.</strong>
         </p>
 
@@ -969,6 +993,7 @@
             <p>
                 No special hardware. No monitoring equipment. Just enter your system details, add your appliances, and start planning. OnSun works with any grid-connected solar PV system, anywhere in the world. Start with 3 days of forecasts free — upgrade to 7 days whenever you're ready.
             </p>
+            <p>For more common questions, see our <a href="index.html#faq">solar savings FAQ</a>.</p>
         </div>
 
     </div>
@@ -1003,7 +1028,7 @@
             <p>
                 Download OnSun and see exactly when to run your appliances for maximum savings. Your first 3 days of forecasts are free. No hardware needed.
             </p>
-            <a href="https://apps.apple.com/app/apple-store/id6758746647?pt=128390520&ct=website&mt=8" class="app-store-btn" target="_blank">
+            <a href="https://apps.apple.com/app/apple-store/id6758746647?pt=128390520&ct=website&mt=8" class="app-store-btn" target="_blank" onclick="gtag('event', 'app_store_click', {'event_category': 'download', 'event_label': 'solar-guide'});">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.21-1.98 1.15-3.11-1.14.05-2.51.76-3.31 1.79-.68.89-1.28 2.3-1.12 3.37 1.22.09 2.48-.62 3.28-1.05z"/>
                 </svg>
@@ -1024,6 +1049,7 @@
             </div>
             <div class="footer-links">
                 <a href="index.html">Home</a>
+                <a href="solar-guide.html">Solar Guide</a>
                 <a href="support.html">Support</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="terms-of-service.html">Terms of Service</a>
