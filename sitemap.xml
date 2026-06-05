@@ -44,4 +44,36 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- Blog index -->
+  <url>
+    <loc>https://onsun.app/blog/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Best time to run appliances with solar -->
+  <url>
+    <loc>https://onsun.app/blog/best-time-to-run-appliances-with-solar.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog: Feed-in tariff vs self-consumption -->
+  <url>
+    <loc>https://onsun.app/blog/feed-in-tariff-vs-self-consumption.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog: How solar forecasting works -->
+  <url>
+    <loc>https://onsun.app/blog/how-solar-forecasting-works.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
