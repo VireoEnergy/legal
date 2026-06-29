@@ -1,0 +1,5 @@
+# Uncompressed source images kept locally as backups (see assets/*_original.*).
+# Not served or version-controlled — re-run scripts/compress_assets.py to regenerate web copies.
+*_original.jpg
+*_original.jpeg
+*_original.png

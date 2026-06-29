@@ -15,7 +15,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f6f4ef">
+    <meta name="theme-color" content="#ffffff">
   <title>OnSun Help & Support | Solar Forecast App FAQs and Setup Guide</title>
   <meta name="description" content="Get help with the OnSun solar forecast app. Find answers to common questions, learn how to configure your solar system settings, understand your forecast, and maximise your savings.">
   <meta name="keywords" content="OnSun support, solar forecast app help, how to set up solar forecast app, solar self-consumption app FAQ, solar panel app settings, solar energy app help, OnSun FAQ, solar production forecast help">
@@ -50,7 +50,7 @@
         "name": "Does OnSun work with any solar system?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. OnSun works with any grid-connected solar PV system regardless of brand, inverter type, or panel size. You do not need special hardware or monitoring equipment. Just enter your system details — panel capacity, roof orientation, and tilt angle — and OnSun calculates your expected production."
+          "text": "Yes. OnSun works with any grid-connected solar PV system regardless of brand, inverter type, or panel size. You do not need special hardware or monitoring equipment. Just enter your system details (panel capacity, roof orientation, and tilt angle) and OnSun calculates your expected production."
         }
       },
       {
@@ -78,7 +78,7 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "OnSun — Solar Forecast App",
+    "name": "OnSun: Solar Forecast App",
     "description": "Stop paying high electricity bills. OnSun forecasts your solar production 7 days ahead so you know exactly when to run appliances for maximum free energy.",
     "url": "https://onsun.app",
     "applicationCategory": "UtilitiesApplication",
@@ -143,15 +143,16 @@
   <nav id="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
-        <img src="assets/image%20367.png" alt="OnSun solar forecast app logo" width="400" height="400" loading="lazy">
-        <span>OnSun Solar Forecast</span>
+        <img class="logo-light" src="assets/logo-light.png" alt="OnSun solar forecast app logo" width="400" height="400" loading="lazy">
+        <img class="logo-dark" src="assets/logo-dark.png" alt="OnSun solar forecast app logo" width="400" height="400" loading="lazy">
+        <span>OnSun: Solar Forecast & Save</span>
       </a>
       <div class="nav-links" id="nav-links">
-        <a href="index.html" class="nav-link-item">Home</a>
+        <a href="index.html#features" class="nav-link-item">Features</a>
         <a href="solar-guide.html" class="nav-link-item">Solar Guide</a>
+        <a href="blog/index.html" class="nav-link-item">Blog</a>
         <a href="index.html#faq" class="nav-link-item">FAQ</a>
         <a href="support.html" class="nav-link-item">Support</a>
-        <a href="blog/index.html" class="nav-link-item">Blog</a>
         <a href="index.html#download" class="nav-cta nav-link-item">Get the App</a>
       </div>
       <div class="nav-actions">
@@ -198,7 +199,7 @@
     <!-- Feedback card -->
     <div class="card card-gradient animate-on-scroll">
       <h2>We're Here to Improve</h2>
-      <p>We're constantly working to make OnSun better. If the forecasting isn't quite right for your location, if the scheduling logic could be refined, or if you have ideas for new features — we'd love to hear from you.</p>
+      <p>We're constantly working to make OnSun better. If the forecasting isn't quite right for your location, if the scheduling logic could be refined, or if you have ideas for new features, we'd love to hear from you.</p>
       <p>Your feedback directly shapes the app. Please don't hesitate to reach out.</p>
       <a href="mailto:onsun.team@outlook.com" class="contact-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -217,7 +218,7 @@
       <h2>Frequently Asked Questions</h2>
 
       <h3>How do forecasts work?</h3>
-      <p>OnSun uses weather data and solar forecasting algorithms to estimate your solar generation throughout the day. Forecasts consider factors like cloud cover, time of year, and your location. Because solar generation depends on many uncontrollable factors — weather, shading, and system performance — forecasts are estimates and real-world results may differ.</p>
+      <p>OnSun uses weather data and solar forecasting algorithms to estimate your solar generation throughout the day. Forecasts consider factors like cloud cover, time of year, and your location. Because solar generation depends on many uncontrollable factors (weather, shading, and system performance), forecasts are estimates and real-world results may differ.</p>
 
       <h3>What forecast interval does OnSun use?</h3>
       <p>In most regions, forecasts are provided in hourly intervals. In areas with higher-resolution meteorological coverage, the models produce 15-minute interval forecasts. Your location determines the time resolution you see in the app. OnSun automatically uses the highest resolution available for your region.</p>
@@ -229,7 +230,7 @@
       <p>OnSun offers free and paid subscription tiers. Subscriptions are managed through your device's app store (Apple App Store or Google Play). This means:</p>
       <ul>
         <li>Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period</li>
-        <li>Billing is handled by Apple or Google — we do not process or store payment information</li>
+        <li>Billing is handled by Apple or Google, so we do not process or store payment information</li>
         <li>You can manage or cancel your subscription in your Apple ID or Google account settings</li>
         <li>No refunds for partial periods, except where required by law</li>
       </ul>
@@ -237,9 +238,15 @@
       <h3>How to restore purchases</h3>
       <p>Open OnSun, go to Settings, and tap "Restore Purchases." Ensure you're signed in with the same Apple ID (iOS) or Google account (Android) used for the original purchase.</p>
 
-      <h3>Block load profiles</h3>
-      <p>OnSun uses simplified appliance load profiles to make scheduling straightforward. Real-world appliances often have variable power draw — heating elements cycle, motors ramp up, and rinse cycles differ from wash cycles. Our scheduler treats the total energy needed as a flexible block within your solar window, which works well for most households.</p>
-      <p>If you need detailed block-profile scheduling (for example, to avoid peak tariff periods or coordinate with home battery cycling), please get in touch. This feature is supported by our architecture and community interest helps us prioritise it.</p>
+      <h3>How does OnSun estimate appliance consumption?</h3>
+      <p>OnSun estimates how much power each appliance uses with <strong>approximated load profiles</strong>. For many appliances (washing machines, dishwashers, clothes dryers, air conditioners, and pool pumps) the app builds a time-varying profile that approximates a typical cycle (for example a heater spike, a wash phase, rinse and spin stages, or compressor cycling) rather than treating consumption as a single flat block. Other appliances, such as ovens, heaters, or custom appliances, use a simpler steady ("block") profile.</p>
+      <p>These profiles are calibrated against typical, publicly available appliance data grouped by efficiency rating, but they are <strong>estimates, not measurements</strong>. Your real appliance can draw meaningfully more or less power depending on its model, age, settings, load size, water temperature, and operating conditions. For the most accurate picture, compare against your own utility data or smart meter where you have one. We don't directly meter or control your appliances.</p>
+
+      <h3>How does OnSun estimate EV charging?</h3>
+      <p>For EV charging, OnSun estimates a charging profile from your charger rating, battery capacity, and the current and target state of charge you enter. It applies a tapering curve (charging slows as the battery fills) and a typical charging-loss factor. This is an <strong>approximation only</strong>: real charging energy and time vary by vehicle, charger, battery temperature and age, and onboard charging limits, so your actual charge may differ from the estimate.</p>
+
+      <h3>Can I get detailed profile scheduling?</h3>
+      <p>If you need finer-grained scheduling (for example, to avoid peak tariff periods or coordinate with home battery cycling), please get in touch. This is supported by our architecture and community interest helps us prioritise it.</p>
     </div>
 
     <hr class="section-divider">
@@ -300,9 +307,9 @@
               <p>The compass direction your panels face. <span class="setting-value">0°</span> = North, <span class="setting-value">180°</span> = South.</p>
               <p><span class="setting-term">Common directions:</span></p>
               <ul>
-                <li>North: <span class="setting-value">0°</span> — best for year-round generation</li>
-                <li>East: <span class="setting-value">90°</span> — good morning sun</li>
-                <li>West: <span class="setting-value">270°</span> — good afternoon sun</li>
+                <li>North: <span class="setting-value">0°</span>, best for year-round generation</li>
+                <li>East: <span class="setting-value">90°</span>, good morning sun</li>
+                <li>West: <span class="setting-value">270°</span>, good afternoon sun</li>
                 <li>North-East: <span class="setting-value">45°</span></li>
                 <li>North-West: <span class="setting-value">315°</span></li>
               </ul>
@@ -341,7 +348,7 @@
           </div>
           <div class="accordion-content">
             <div class="accordion-body">
-              <p>Your home's minimum power consumption (in kW) when no major appliances are running — fridges, standby devices, routers, etc.</p>
+              <p>Your home's minimum power consumption (in kW) when no major appliances are running, such as fridges, standby devices, routers, etc.</p>
               <p><span class="setting-term">How to estimate:</span></p>
               <ul>
                 <li>Check your smart meter or inverter app late at night when everything is off</li>
@@ -432,7 +439,7 @@
 
     <!-- Disclaimer -->
     <div class="disclaimer animate-on-scroll">
-      <strong>Disclaimer:</strong> Forecasts and savings figures are estimates and may vary based on weather and usage. OnSun provides guidance only and does not guarantee specific energy savings or solar generation outcomes.
+      <strong>Disclaimer:</strong> Solar forecasts, appliance consumption profiles, EV charging estimates, and savings figures are all approximations and may vary based on weather, your specific equipment, and usage. OnSun provides guidance only and does not guarantee specific energy savings, solar generation, or appliance consumption outcomes.
     </div>
 
     <!-- Contact -->
@@ -454,8 +461,9 @@
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="assets/image%20367.png" alt="OnSun solar forecast app logo" width="400" height="400" loading="lazy">
-        <span>OnSun</span>
+        <img class="logo-light" src="assets/logo-light.png" alt="OnSun solar forecast app logo" width="400" height="400" loading="lazy">
+        <img class="logo-dark" src="assets/logo-dark.png" alt="OnSun solar forecast app logo" width="400" height="400" loading="lazy">
+        <span>OnSun: Solar Forecast & Save</span>
       </div>
       <div class="footer-links">
         <a href="index.html">Home</a>

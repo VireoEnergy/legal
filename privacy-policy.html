@@ -5,7 +5,7 @@
     <script>(function(){try{var t=localStorage.getItem('onsun-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f6f4ef">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Privacy Policy for OnSun (Vireo Energy Pty Ltd)." />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="Vireo Energy Pty Ltd">
@@ -66,13 +66,15 @@
   <nav id="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
-        <img src="assets/image%20367.png" alt="OnSun solar forecast app logo" width="400" height="400">
-        <span>OnSun</span>
+        <img class="logo-light" src="assets/logo-light.png" alt="OnSun solar forecast app logo" width="400" height="400">
+        <img class="logo-dark" src="assets/logo-dark.png" alt="OnSun solar forecast app logo" width="400" height="400">
+        <span>OnSun: Solar Forecast & Save</span>
       </a>
       <div class="nav-links" id="nav-links">
-        <a href="index.html" class="nav-link-item">Home</a>
+        <a href="index.html#features" class="nav-link-item">Features</a>
         <a href="solar-guide.html" class="nav-link-item">Solar Guide</a>
         <a href="blog/index.html" class="nav-link-item">Blog</a>
+        <a href="index.html#faq" class="nav-link-item">FAQ</a>
         <a href="support.html" class="nav-link-item">Support</a>
         <a href="index.html#download" class="nav-cta nav-link-item">Get the App</a>
       </div>
@@ -102,10 +104,10 @@
             </defs>
           </svg>
         </div>
-        <span class="app-name">OnSun</span>
+        <span class="app-name">OnSun: Solar Forecast & Save</span>
       </div>
       <h1>Privacy Policy</h1>
-      <p class="sub">OnSun (“the App”) is operated by Vireo Energy Pty Ltd under licence from Adaptive Energy Group Pty Ltd • Effective date: 1 March 2026</p>
+      <p class="sub">OnSun (“the App”) is operated by Vireo Energy Pty Ltd under licence from Adaptive Energy Group Pty Ltd • Effective date: 22 June 2026</p>
     </header>
 
     <main role="main">
@@ -113,11 +115,13 @@
         <h2>Overview</h2>
         <p>
           OnSun helps you plan appliance usage around expected solar production.
-          The app is designed to run primarily on your device. We do not provide user accounts and we do not build behavioural profiles for advertising or tracking purposes.
+          The app is designed to run primarily on your device, and we do not provide user accounts. We do not use third‑party advertising SDKs, we do not track you across other apps or websites, and we do not sell your personal data.
+        </p>
+        <p>
+          OnSun is free to use, with an optional paid (Pro) subscription. To keep the free tier sustainable, the app can show <span class="k">promotional content and affiliate offers</span> from third parties, shown primarily to users on the free plan. To choose which offers are relevant, we use a limited set of information, mostly your <span class="k">country</span>, <span class="k">language</span>, <span class="k">subscription status</span>, and <span class="k">app‑usage statistics</span> (such as how much you have saved and which appliance categories you use), much of it in aggregate form. We do not share this information with the offer or affiliate partners themselves. See “Promotional content and affiliate offers” below.
         </p>
         <p class="muted">
-          If you are reviewing this for App Store / Google Play disclosure: the primary data processed externally is your <span class="k">location coordinates</span> (to fetch forecasts),
-          plus a <span class="k">per-install client identifier</span> (for rate limiting) and your <span class="k">IP address</span> (as part of standard networking).
+          If you are reviewing this for App Store / Google Play disclosure, the data processed externally is: your <span class="k">location coordinates</span> (to fetch forecasts and an optional place label), a <span class="k">per‑install client identifier</span> and <span class="k">IP address</span> (for rate limiting and standard networking), your <span class="k">country</span>, <span class="k">language</span>, and <span class="k">subscription status</span>, <span class="k">app‑usage statistics</span> (in aggregate), <span class="k">interactions with promotional content</span> (which offers were shown, tapped, or dismissed), and <span class="k">crash / diagnostic data</span> (error message and stack trace, with no IP address or device identifier attached). We do not collect your name, email, contacts, photos, or payment card details.
         </p>
       </section>
 
@@ -137,50 +141,74 @@
           <tr>
             <td class="k">Precise location</td>
             <td>Latitude, longitude</td>
-            <td>Fetch solar forecast for your site</td>
-            <td>Stored locally in app settings. Shared with forecast providers as described below.</td>
+            <td>Fetch solar forecast for your site; obtain an optional place label</td>
+            <td>Stored locally in app settings. Sent (at full precision) to our forecast proxy and to the reverse‑geocoding provider as described below. Our forecast proxy does not store your precise coordinates (see “Aggregate geo analytics”).</td>
           </tr>
           <tr>
             <td class="k">Location label (optional)</td>
             <td>City/suburb/country label derived from coordinates</td>
             <td>Display a human-readable location</td>
-            <td>Stored locally. May be retrieved via reverse geocoding (see “Third parties”).</td>
+            <td>Stored locally. Retrieved via reverse geocoding (see “Third parties”).</td>
+          </tr>
+          <tr>
+            <td class="k">Country</td>
+            <td>Country code derived from your location (e.g. AU, BR), or your device region if no location is set</td>
+            <td>Set your default currency on‑device; and select region‑relevant promotional/affiliate offers</td>
+            <td>Used on your device for currency. The country code is also sent to our insights service (to choose relevant offers) and is stored there alongside aggregate usage and offer‑interaction records. It is not your precise location.</td>
+          </tr>
+          <tr>
+            <td class="k">Language</td>
+            <td>Language/region tag (e.g. <code>en-AU</code>, <code>de</code>)</td>
+            <td>Formatting (dates, numbers); reverse‑geocoding language; serving offers in your language</td>
+            <td>Used locally; sent via <code>Accept-Language</code> to the reverse‑geocoding provider and to our insights service, where the primary language subtag is stored with aggregate usage and offer‑interaction records.</td>
+          </tr>
+          <tr>
+            <td class="k">Subscription status</td>
+            <td>Whether you are on the free or Pro plan</td>
+            <td>Enable Pro features; tailor forecast frequency; decide whether to show promotional content</td>
+            <td>Determined on‑device from your App Store / Google Play purchase. Sent to our forecast proxy and insights service so the right tier of service and offers is provided; stored there only in aggregate (not against your identity).</td>
+          </tr>
+          <tr>
+            <td class="k">App‑usage statistics</td>
+            <td>Estimated money saved, solar energy used (kWh), number of appliance runs, the categories of appliance you use (e.g. dishwasher, EV), appliance count, installed solar capacity, and basic in‑app engagement counts</td>
+            <td>Select relevant offers; product analytics and capacity planning</td>
+            <td>Sent to our insights service and stored in <strong>aggregate</strong> form, grouped by date and country, not against your identity, and not joined to a stable identifier. Appliance <em>names</em>, schedules, and exact power profiles are <strong>not</strong> sent and remain on your device.</td>
+          </tr>
+          <tr>
+            <td class="k">Promotional‑content interactions</td>
+            <td>Which offer was shown, tapped, or dismissed, plus country, language, platform, subscription tier, and a timestamp</td>
+            <td>Measure which offers are useful</td>
+            <td>Stored as <strong>anonymous</strong> event records on our insights service. No IP address is stored (not even a hashed one), and no stable device identifier is attached, so these records do not identify you.</td>
           </tr>
           <tr>
             <td class="k">Per-install identifier</td>
             <td>Random client ID (UUID)</td>
             <td>Rate limiting / abuse prevention for forecast requests</td>
-            <td>Stored locally; sent as <code>X-Client-Id</code> header when requesting forecasts.</td>
+            <td>Stored locally; sent as <code>X-Client-Id</code> only to our forecast proxy. The proxy stores it only as a one‑way hash for up to ~48&nbsp;hours and does not link it to your stored region. It is not sent to our insights service.</td>
           </tr>
           <tr>
             <td class="k">Network data</td>
             <td>IP address, request metadata</td>
             <td>Standard internet communication; rate limiting / security</td>
-            <td>Processed by our forecast proxy and hosting providers as part of serving requests.</td>
+            <td>Processed by our proxy, insights service, and hosting providers as part of serving requests. IP addresses are used only transiently for rate limiting (held for up to ~20&nbsp;minutes, then automatically expired) and are not stored in our analytics or insights records. Our servers and hosting providers may record an IP address in short‑lived operational logs (see “Server logs and security” below).</td>
           </tr>
           <tr>
             <td class="k">Aggregate geo analytics</td>
-            <td>Approximate geographic region (~50&nbsp;km area) derived from forecast request coordinates, plus a daily request count</td>
+            <td>Approximate geographic region (~20&nbsp;km area) derived from forecast request coordinates, subscription tier, plus a daily request count</td>
             <td>Service analytics and capacity planning</td>
-            <td>Stored in a database on our hosting infrastructure. Coordinates are rounded to a ~50&nbsp;km grid before storage — individual users cannot be identified from this data.</td>
+            <td>Stored in a database on our hosting infrastructure. Coordinates are rounded to a ~20&nbsp;km grid before storage and retained for up to 180 days; individual users cannot be identified from this data.</td>
           </tr>
           <tr>
-            <td class="k">Device locale</td>
-            <td>Language/region (e.g. <code>en-AU</code>)</td>
-            <td>Formatting (dates, numbers); reverse geocoding language preference</td>
-            <td>Used locally; may be sent to reverse geocoding provider via <code>Accept-Language</code>.</td>
-          </tr>
-          <tr>
-            <td class="k">Device region</td>
-            <td>Region setting (e.g. country code such as AU, BR)</td>
-            <td>Set default currency for energy costs and savings so prices match your region</td>
-            <td>Used only on your device. Not sent to our servers or used to identify you.</td>
+            <td class="k">Crash / diagnostic data</td>
+            <td>Error message, stack trace, whether the error was fatal, plus the platform (iOS/Android) and app version</td>
+            <td>Detect, group, and fix crashes and stability problems</td>
+            <td>Sent to our crash‑reporting endpoint when the app hits an unexpected error, and grouped there by a fingerprint computed from the error and stack. We do <strong>not</strong> attach an IP address or any stable device identifier to these reports, and they are de‑duplicated (each crash type is sent at most once per 24&nbsp;hours). Reports are used only for stability triage and are not linked to your identity or to the analytics described above.</td>
           </tr>
           <tr>
             <td class="k">App content (local)</td>
-            <td>Appliance names, schedules, run history, savings estimates</td>
+            <td>Appliance names, schedules, run history</td>
             <td>Provide the app’s features</td>
-            <td>Stored on your device. Not sent to our servers in normal operation.</td>
+            <td>Stored on your device. Names, schedules, and detailed history are not sent to our servers (only the aggregate usage statistics described above are).</td>
           </tr>
           <tr>
             <td class="k">In‑app purchases</td>
@@ -207,14 +235,50 @@
       </section>
 
       <section>
+        <h2>Promotional content and affiliate offers</h2>
+        <p>
+          OnSun is free to use, with an optional paid (Pro) subscription. To support the free tier, the app may show promotional content and affiliate offers from third parties, shown primarily to users on the free plan. To make these offers relevant rather than random, our insights service selects them using a limited set of information: your <span class="k">country</span> and <span class="k">language</span>, your <span class="k">subscription status</span>, and your <span class="k">app‑usage statistics</span> (for example, how much you have saved or which appliance categories you use), most of which is processed in aggregate.
+        </p>
+        <ul>
+          <li><span class="k">We do not share your data with the offer or affiliate partners.</span> The selection happens on our own service. If you choose to tap an offer, you leave the app and open the partner’s website in your browser; from that point the partner’s own privacy policy and terms apply, and the partner may set its own cookies or identifiers.</li>
+          <li><span class="k">We may earn a commission</span> if you take up an affiliate offer. This does not change the price you pay.</li>
+          <li><span class="k">No third‑party advertising SDKs and no cross‑app tracking.</span> Offers are chosen by us, in‑app; we do not embed advertising networks and we do not build a profile of you across other apps or websites.</li>
+          <li><span class="k">We record which offers were shown, tapped, or dismissed</span> (with country, language, platform, subscription tier, and a timestamp) to understand which offers are useful. These records are anonymous: no IP address and no stable device identifier are stored with them.</li>
+          <li><span class="k">You can turn off personalised offers for free</span> in <span class="k">Settings → Notifications</span> (where this control is shown), and <span class="k">Pro subscribers may see fewer or no offers</span>. You can also dismiss individual offers at any time.</li>
+        </ul>
+      </section>
+
+      <section>
         <h2>How we use and retain data</h2>
         <ul>
           <li><span class="k">Forecast requests:</span> used to compute solar production estimates and scheduling recommendations.</li>
           <li><span class="k">Local app data:</span> schedules, appliance settings, and history remain on-device unless you delete the app.</li>
-          <li><span class="k">Operational retention:</span> rate limiting counters are stored temporarily (short-lived cache entries). Aggregate geo analytics — approximate geographic region and daily request counts — are retained in a database for up to 3 years for capacity planning. This data is not linked to individual users.</li>
+          <li><span class="k">Rate‑limiting:</span> counters are stored temporarily (short‑lived cache entries, up to ~20&nbsp;minutes for IP‑based limits and up to ~48&nbsp;hours for per‑install limits). Client identifiers used for rate limiting are stored only as one‑way hashes. IP addresses used for rate limiting are held transiently (up to ~20&nbsp;minutes) and then automatically expire; they are not retained beyond that short window.</li>
+          <li><span class="k">Aggregate geo analytics:</span> approximate geographic region (~20&nbsp;km), subscription tier, and daily request counts are retained in a database for up to 180 days for capacity planning. This data is not linked to individual users.</li>
+          <li><span class="k">Aggregate impact statistics:</span> anonymous, aggregate app‑usage statistics (grouped by date and country, not linked to any identifier or IP) are kept long‑term so we can report on collective impact, for example total energy shifted into daylight hours and money saved across all users.</li>
+          <li><span class="k">Promotional‑content interactions:</span> the records of which offers were shown, tapped, or dismissed are anonymous (no IP address, no device identifier) and are retained for analytics. Because they do not identify anyone, we keep only what we need to understand which offers are useful.</li>
+          <li><span class="k">Crash / diagnostic reports:</span> error messages and stack traces sent when the app hits an unexpected error are stored grouped by crash type, with no IP address or device identifier attached, and used only to fix stability problems. We keep them only as long as needed for stability triage.</li>
         </ul>
         <p class="muted">
-          We do not sell personal data and we do not use third-party advertising networks.
+          We do not sell personal data, we do not use third‑party advertising SDKs, and we do not share your personal data with advertisers or affiliate partners.
+        </p>
+      </section>
+
+      <section>
+        <h2>Server logs and security</h2>
+        <p>
+          Like all internet services, our servers and hosting/infrastructure
+          providers process your <span class="k">IP address</span> and standard
+          request metadata in order to deliver and secure the service. Our
+          application access logs record the request method, path, response
+          status and timing, but <strong>do not record your IP address</strong>.
+          IP addresses may still be processed transiently at the
+          hosting/network layer (for example in our provider’s edge or
+          load‑balancer logs) and in the short‑lived rate‑limiting counters
+          described above; these are retained only briefly under the provider’s
+          standard log‑retention settings and are then deleted. We use this
+          information only to operate, debug and secure the service, not to
+          build a profile of you or to track you across other apps or websites.
         </p>
       </section>
 
@@ -226,11 +290,11 @@
         <ul>
           <li><span class="k">Contract:</span> processing necessary to provide the app and solar forecasting (e.g. location for forecasts, client ID for rate limiting).</li>
           <li><span class="k">Consent:</span> where you grant location or other permissions; you may withdraw consent via device settings or by uninstalling.</li>
-          <li><span class="k">Legitimate interests:</span> operating and securing our services (e.g. IP and request metadata for security and abuse prevention), where balanced against your rights.</li>
+          <li><span class="k">Legitimate interests:</span> operating and securing our services (e.g. IP and request metadata for security and abuse prevention); producing aggregate analytics; and selecting and measuring relevant promotional/affiliate content to support the free tier, in each case balanced against your rights.</li>
           <li><span class="k">Legal obligation:</span> where we must retain or disclose data to comply with law.</li>
         </ul>
         <p class="muted">
-          We do not rely on consent for processing that is necessary to perform our contract with you; we will only use your data beyond that with your consent or another valid basis.
+          We do not rely on consent for processing that is necessary to perform our contract with you; we will only use your data beyond that with your consent or another valid basis. You have the right to object at any time, and free of charge, to the processing of your data for direct‑marketing‑style personalisation of offers. Where this right applies, you can exercise it directly in the app under <span class="k">Settings → Notifications</span> (the “Personalised offers” control); you may also upgrade to Pro (Pro subscribers may see fewer or no offers) or contact us. Once you object, we stop personalising offers to you.
         </p>
       </section>
 
@@ -249,15 +313,21 @@
         <p>OnSun uses the following services to function:</p>
         <ul>
           <li>
-            <span class="k">Open‑Meteo</span> (forecast data). When you request a forecast, your latitude/longitude are used to retrieve solar data.
+            <span class="k">Open‑Meteo</span> (forecast data). When you request a forecast, your latitude/longitude are sent (via our forecast proxy) to retrieve solar data.
             Open‑Meteo operates under its own terms and policies: <a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener noreferrer">https://open-meteo.com/en/terms</a>.
           </li>
           <li>
-            <span class="k">OpenStreetMap Nominatim</span> (reverse geocoding, optional). If enabled/used, coordinates are sent to
+            <span class="k">OpenStreetMap Nominatim</span> (reverse geocoding). When a place label is needed, your coordinates are sent to
             <code>nominatim.openstreetmap.org</code> to obtain a human-readable label.
           </li>
           <li>
-            <span class="k">Hosting/Infrastructure providers</span> (to serve forecast proxy requests). As with all internet services, requests include your IP address and standard request metadata.
+            <span class="k">Our forecast proxy &amp; insights service</span> (operated for us on cloud hosting). The forecast proxy relays forecast requests and keeps the aggregate geo analytics described above. The insights service receives your country, language, subscription status, and aggregate app‑usage statistics in order to select promotional/affiliate offers, and records which offers were shown, tapped, or dismissed. These are our own back‑end services; they do not pass your data to the offer or affiliate partners.
+          </li>
+          <li>
+            <span class="k">Affiliate / promotional partners</span> (third‑party offers). We do not send your data to these partners. If you tap an offer, you open the partner’s website in your browser, and from that point the partner’s own privacy policy and terms apply.
+          </li>
+          <li>
+            <span class="k">Hosting/Infrastructure providers</span> (to serve forecast proxy and insights requests). As with all internet services, requests include your IP address and standard request metadata.
           </li>
           <li>
             <span class="k">Apple App Store / Google Play</span> (in-app purchases). Subscription purchases and entitlements are handled by Apple/Google.
@@ -271,7 +341,24 @@
       <section>
         <h2>Data subject rights</h2>
         <p>
-          Depending on your jurisdiction, you may have rights (e.g. access, correction, erasure, objection, complaint to a supervisory authority). To exercise them or for questions, <a href="mailto:onsun.team@outlook.com" class="contact-btn">Contact us</a>. Data stored only on your device can be removed by deleting the app.
+          Depending on your jurisdiction, you may have rights (e.g. access, correction, erasure, restriction of processing, data portability, objection, and the right to lodge a complaint with a supervisory authority). To exercise them or for questions, <a href="mailto:onsun.team@outlook.com" class="contact-btn">Contact us</a>. Data stored only on your device can be removed by deleting the app.
+        </p>
+      </section>
+
+      <section>
+        <h2>California privacy rights (CCPA/CPRA)</h2>
+        <p>
+          If you are a California resident, you have the right to know what
+          personal information we collect, to request access to or deletion of
+          it, and to opt out of its “sale” or “sharing”.
+          <strong>We do not sell your personal information, and we do not share
+          it for cross‑context behavioural advertising</strong> as those terms
+          are defined under the California Consumer Privacy Act (CCPA/CPRA). The
+          categories of information we process and the purposes for which we use
+          them are described in “What data we process” above; we do not use
+          third‑party advertising SDKs and we do not build cross‑app profiles.
+          We will not discriminate against you for exercising your rights. To
+          make a request, <a href="mailto:onsun.team@outlook.com" class="contact-btn">Contact us</a>.
         </p>
       </section>
 
@@ -279,7 +366,8 @@
         <h2>Your choices</h2>
         <ul>
           <li>You can disable location permission in your device settings and enter coordinates manually.</li>
-          <li>You can delete the app to remove locally stored app data.</li>
+          <li>You can turn off personalised offers for free in Settings → Notifications (where shown); Pro subscribers may see fewer or no offers; and you can dismiss individual offers in the app.</li>
+          <li>You can delete the app to remove locally stored app data and reset the per‑install identifier.</li>
           <li>You can control notification permissions via your device settings.</li>
         </ul>
       </section>
@@ -295,7 +383,7 @@
       <section>
         <h2>Children’s privacy</h2>
         <p>
-          OnSun is not directed to children and we do not knowingly collect personal information from children.
+          OnSun is not directed to children and we do not knowingly collect personal information from children. Where local law sets a minimum age for consent to data processing (for example, between 13 and 16 in parts of the EU/EEA), users below that age should only use the App with the consent or involvement of a parent or guardian.
         </p>
       </section>
 
@@ -317,9 +405,9 @@
       <div class="footer" role="contentinfo">
         <div>© 2026 Vireo Energy Pty Ltd</div>
         <div>
-          <a href="https://vireoenergy.github.io/legal/terms-of-service.html">Terms of Service</a>
+          <a href="https://onsun.app/terms-of-service.html">Terms of Service</a>
           <span class="muted"> · </span>
-          <a href="https://vireoenergy.github.io/legal/privacy-policy.html">Privacy Policy</a>
+          <a href="https://onsun.app/privacy-policy.html">Privacy Policy</a>
         </div>
       </div>
     </main>

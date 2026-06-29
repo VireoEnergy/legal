@@ -13,7 +13,7 @@
     <script>(function(){try{var t=localStorage.getItem('onsun-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f6f4ef">
+  <meta name="theme-color" content="#ffffff">
   <title>The Best Time to Run Appliances With Solar Panels (2026 Guide) | OnSun</title>
   <meta name="description" content="The best time to run appliances with solar panels is usually 10am-3pm, but the ideal window shifts daily with weather and season. Here is how to time washing, dishwashing, pool pumps and EV charging to use free solar.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -59,7 +59,7 @@
       "name": "OnSun",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://onsun.app/assets/image%20367.png"
+        "url": "https://onsun.app/assets/logo-light.png"
       }
     },
     "datePublished": "2026-06-05",
@@ -146,13 +146,15 @@
   <nav id="navbar">
     <div class="nav-container">
       <a href="../index.html" class="nav-logo">
-        <img src="../assets/image%20367.png" alt="OnSun solar forecast app logo" width="400" height="400">
-        <span>OnSun</span>
+        <img class="logo-light" src="../assets/logo-light.png" alt="OnSun solar forecast app logo" width="400" height="400">
+        <img class="logo-dark" src="../assets/logo-dark.png" alt="OnSun solar forecast app logo" width="400" height="400">
+        <span>OnSun: Solar Forecast & Save</span>
       </a>
       <div class="nav-links" id="nav-links">
-        <a href="../index.html" class="nav-link-item">Home</a>
+        <a href="../index.html#features" class="nav-link-item">Features</a>
         <a href="../solar-guide.html" class="nav-link-item">Solar Guide</a>
         <a href="index.html" class="nav-link-item">Blog</a>
+        <a href="../index.html#faq" class="nav-link-item">FAQ</a>
         <a href="../support.html" class="nav-link-item">Support</a>
         <a href="../index.html#download" class="nav-cta nav-link-item">Get the App</a>
       </div>
@@ -199,6 +201,12 @@
 
     <h2>Why midday is the solar sweet spot</h2>
     <p>Solar production follows a predictable bell curve across the day. Output climbs from sunrise, builds through the morning, peaks around solar noon, then tapers to nothing by sunset. The steep middle of that curve is where the surplus lives, because that is where generation most comfortably exceeds the baseline demand of a typical home.</p>
+
+    <figure class="app-shot">
+      <img src="../assets/solar_profile_clear.png" alt="OnSun forecast screen showing a clear-day solar production curve, a smooth bell shape that rises from 8am, peaks at about 6.6 kW near midday, then tapers toward late afternoon" width="653" height="340" loading="lazy">
+      <figcaption>A clear day in OnSun: the steep middle of the bell curve, roughly 10am to 3pm, is where your surplus solar lives: the prime window to run big loads.</figcaption>
+    </figure>
+
     <p>This matters because of a price gap most people only discover after their first full bill. The electricity you draw from the grid is charged at the retail rate, commonly 25 to 40 cents per kilowatt-hour. The surplus solar you export earns only a feed-in tariff, which in many markets has fallen to single digits. So exporting solar and buying it back later is a losing trade, and the entire point of timing your appliances is to flip that trade in your favour by using the energy yourself.</p>
 
     <div class="stat-callout">
@@ -221,8 +229,14 @@
     <h2>How the ideal window changes with weather and season</h2>
     <p>Treat 10am-3pm as a starting point, not a fixed law, because three things constantly reshape your production curve.</p>
     <p><strong>Cloud cover.</strong> A passing band of cloud can cut output by half within minutes. On a partly cloudy day your reliable surplus window might shrink to a couple of hours, or split into broken patches, so it pays to start your longest loads when the sky is genuinely clear rather than gambling on a forecast gap.</p>
-    <p><strong>Season.</strong> In summer the sun rises earlier, sits higher and stays up longer, giving you a wide, generous window. In winter the whole curve compresses: production starts later, peaks lower and finishes earlier, so a load that easily ran at 2pm in January may struggle at the same hour in July. Shorter winter days mean tighter timing.</p>
-    <p><strong>Roof orientation.</strong> Panel direction tilts the whole curve. North-facing arrays (in the Southern Hemisphere) give the classic midday peak. East-facing panels front-load their output, so your best window arrives mid-morning. West-facing panels hold their production later, which is handy if your household demand spikes in the afternoon. Split-array homes get a flatter, broader curve. If you want a deeper walk-through of orientation and tilt, our <a href="../solar-guide.html">Solar Savings Guide</a> covers it in plain language.</p>
+
+    <figure class="app-shot">
+      <img src="../assets/solar_profile_cloudy_afternoon.png" alt="OnSun forecast screen for a cloudy afternoon: the solar production curve rises normally through the morning, peaks near midday, then drops away after 1pm with a much wider shaded uncertainty band as cloud builds" width="646" height="345" loading="lazy">
+      <figcaption>A cloudy afternoon shrinks the window: production holds up in the morning but falls away after midday, so the safe bet is to start long loads earlier while the sky is clear.</figcaption>
+    </figure>
+
+    <p><strong>Season.</strong> In summer the sun rises earlier, sits higher and stays up longer, giving you a wide, generous window. In winter the whole curve compresses: production starts later, peaks lower and finishes earlier, so a load that easily ran at 2pm in midsummer may struggle at the same hour in midwinter. (Which calendar months those fall in depends on where you live: peak summer sun lands around December and January in the Southern Hemisphere, and June and July in the Northern.) Shorter winter days mean tighter timing.</p>
+    <p><strong>Roof orientation.</strong> Panel direction tilts the whole curve. Arrays facing the equator (north-facing in the Southern Hemisphere, south-facing in the Northern) give the classic midday peak. East-facing panels front-load their output, so your best window arrives mid-morning. West-facing panels hold their production later, which is handy if your household demand spikes in the afternoon. Split-array homes get a flatter, broader curve. If you want a deeper walk-through of orientation and tilt, our <a href="../solar-guide.html">Solar Savings Guide</a> covers it in plain language.</p>
 
     <h2>Best times for specific appliances</h2>
     <p>Different appliances suit different parts of the solar window. Here is how to think about the big energy users.</p>
@@ -319,10 +333,11 @@
   <!-- Download CTA -->
   <section class="download-cta">
     <div class="download-cta-inner">
-      <img class="dl-logo" src="../assets/image%20367.png" alt="OnSun app icon">
+      <img class="dl-logo logo-light" src="../assets/logo-light.png" alt="OnSun app icon">
+      <img class="dl-logo logo-dark" src="../assets/logo-dark.png" alt="OnSun app icon">
       <h2>See your best solar window for the week ahead</h2>
       <p>OnSun forecasts your solar production seven days out and tells you exactly when to run each appliance, so you keep more of the energy your panels make. The first three days are free.</p>
-      <a href="https://apps.apple.com/app/apple-store/id6758746647?pt=128390520&ct=blog&mt=8" class="app-store-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.21-1.98 1.15-3.11-1.14.05-2.51.76-3.31 1.79-.68.89-1.28 2.3-1.12 3.37 1.22.09 2.48-.62 3.28-1.05z"></path></svg><div><small>Download on the</small><strong>App Store</strong></div></a>
+      <a href="https://apps.apple.com/app/apple-store/id6758746647?pt=128390520&ct=blog&mt=8" class="app-store-btn" target="_blank" rel="noopener"><img src="../assets/download-on-the-app-store.svg" alt="Download on the App Store" class="app-store-badge" width="162" height="54"></a>
       <p class="android-note">Android coming soon</p>
     </div>
   </section>
@@ -331,8 +346,9 @@
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="../assets/image%20367.png" alt="OnSun solar forecast app logo" width="400" height="400">
-        <span>OnSun</span>
+        <img class="logo-light" src="../assets/logo-light.png" alt="OnSun solar forecast app logo" width="400" height="400">
+        <img class="logo-dark" src="../assets/logo-dark.png" alt="OnSun solar forecast app logo" width="400" height="400">
+        <span>OnSun: Solar Forecast & Save</span>
       </div>
       <div class="footer-links">
         <a href="../index.html">Home</a>
