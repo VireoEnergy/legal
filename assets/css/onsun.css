@@ -771,7 +771,7 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
   font-size: 1.15rem; line-height: 1.7; color: var(--text-primary); font-style: italic;
 }
 .article figure { margin: 2rem 0; }
-.article figure img { width: 100%; border-radius: var(--r-card); display: block; }
+.article figure img { width: 100%; height: auto; border-radius: var(--r-card); display: block; }
 .article figcaption { margin-top: 0.6rem; font-size: 0.85rem; color: var(--text-muted); text-align: center; }
 .article img { border-radius: var(--r-card); }
 /* In-app screenshots: keep at native scale (don't upscale to full column), centered with a soft lift. */

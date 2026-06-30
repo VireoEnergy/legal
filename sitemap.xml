@@ -46,7 +46,7 @@
 
   <!-- Blog index -->
   <url>
-    <loc>https://onsun.app/blog/</loc>
+    <loc>https://onsun.app/blog/index.html</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
