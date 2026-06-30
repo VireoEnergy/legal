@@ -780,6 +780,9 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
 
 .photo-break { width: 100%; border-radius: var(--r-card); margin: 2.5rem 0; overflow: hidden; }
 .photo-break img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--r-card); }
+/* Square crop anchored to the top of a tall portrait shot (captures the rooftop solar) */
+.photo-break--square-top { aspect-ratio: 1 / 1; max-width: 560px; margin-left: auto; margin-right: auto; }
+.photo-break--square-top img { object-position: 50% 28%; }
 
 .stat-callout { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin: 2.5rem 0; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-card); box-shadow: var(--shadow-card); }
 .stat-callout-item { text-align: center; }
@@ -802,6 +805,8 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
 .appliance-card:hover { transform: translateY(-3px); border-color: var(--chip-border); }
 .appliance-icon { width: 48px; height: 48px; flex-shrink: 0; background: var(--chip-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
 .appliance-icon svg, .appliance-icon img { width: 26px; height: 26px; stroke: var(--coral); }
+/* Mask glyph recolours the appliance SVG to the active theme's coral (orange in light, pink in dark) */
+.appliance-glyph { width: 26px; height: 26px; background-color: var(--coral); -webkit-mask: var(--glyph) center / contain no-repeat; mask: var(--glyph) center / contain no-repeat; }
 .appliance-info h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem; }
 .appliance-info p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
 
@@ -812,7 +817,7 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
 .app-showcase-content h2 span { background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .app-showcase-content p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.5rem; }
 .app-showcase-phone { text-align: center; }
-.app-showcase-phone img { max-width: 300px; width: 100%; border-radius: 32px; }
+.app-showcase-phone img { max-width: 300px; width: 100%; height: auto; aspect-ratio: 720 / 1334; object-fit: contain; }
 
 /* Download CTA (solar-guide) */
 .download-cta { padding: 5rem 2rem; background: var(--bg-primary); }
