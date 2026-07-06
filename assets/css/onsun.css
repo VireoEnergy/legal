@@ -638,7 +638,7 @@ nav.scrolled { background: var(--nav-bg-solid); padding: 0.75rem 2rem; }
 .download-logo { width: 100px; height: 100px; border-radius: 24px; margin-bottom: 2rem; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); animation: pulse 3s ease-in-out infinite; }
 .download-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1rem; color: #fff; }
 .download-description { color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; margin-bottom: 2.5rem; }
-/* Official Apple "Download on the App Store" badge (self-contained black pill). */
+/* Official Apple / Google store badges (self-contained black pills). */
 .app-store-btn {
   display: inline-block; line-height: 0;
   text-decoration: none; border-radius: 12px;
@@ -646,10 +646,9 @@ nav.scrolled { background: var(--nav-bg-solid); padding: 0.75rem 2rem; }
 }
 .app-store-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3); }
 .app-store-btn img, .app-store-badge { height: 54px; width: auto; display: block; }
+.store-badges { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.75rem; }
 .cta-group { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
 .secondary-btn-wrapper { display: flex; align-items: flex-start; }
-.android-coming-soon { font-size: 0.875rem; color: var(--text-secondary); margin: 0; font-weight: 500; }
-.android-coming-soon-light { font-size: 0.875rem; color: rgba(255, 255, 255, 0.8); margin: 1rem 0 0; font-weight: 500; }
 
 /* --------------------------------------------------------------------------
    15. Footer
@@ -827,7 +826,6 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
 .download-cta-inner h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; margin-bottom: 1rem; color: #fff; }
 .download-cta-inner p { color: rgba(255, 255, 255, 0.9); font-size: 1.05rem; margin-bottom: 2rem; }
 .dl-logo { width: 88px; height: 88px; border-radius: 22px; margin-bottom: 1.5rem; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
-.android-note { font-size: 0.875rem; color: rgba(255, 255, 255, 0.8); margin-top: 1rem; font-weight: 500; }
 .download-cta-faq { margin-top: 1.5rem; font-size: 0.95rem; }
 .download-cta-faq a { color: #fff; text-decoration: underline; font-weight: 600; }
 
@@ -920,8 +918,7 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
    -------------------------------------------------------------------------- */
 @media (max-width: 968px) {
   .hero-container { grid-template-columns: 1fr; text-align: center; }
-  .hero-content { order: 2; }
-  .hero-visual { order: 1; }
+  /* Text leads on mobile: keep DOM order (content above the phone mockup). */
   .hero-description { margin: 0 auto 2rem; }
   .hero-cta { justify-content: center; }
   .showcase-grid { grid-template-columns: 1fr; gap: 2rem; }
