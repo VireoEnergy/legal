@@ -921,6 +921,8 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
   /* Text leads on mobile: keep DOM order (content above the phone mockup). */
   .hero-description { margin: 0 auto 2rem; }
   .hero-cta { justify-content: center; }
+  /* "See How It Works" is desktop-only. */
+  .secondary-btn-wrapper { display: none; }
   .showcase-grid { grid-template-columns: 1fr; gap: 2rem; }
   .showcase-card { padding: 2rem; }
   .showcase-row { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
@@ -945,8 +947,6 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
   .hero-cta { flex-direction: column; align-items: center; }
   .cta-group { width: 100%; max-width: 280px; }
   .cta-group .btn-primary { width: 100%; justify-content: center; padding: 1rem 1.5rem; }
-  .secondary-btn-wrapper { width: 100%; max-width: 280px; }
-  .secondary-btn-wrapper .btn-secondary { width: 100%; justify-content: center; }
   .phone-mockup { max-width: 260px; }
   .features-grid { grid-template-columns: 1fr; }
   .features, .benefits, .faq, .showcase { padding: 4rem 1.5rem; }
