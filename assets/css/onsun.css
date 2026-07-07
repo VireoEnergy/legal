@@ -805,7 +805,16 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
 .appliance-icon { width: 48px; height: 48px; flex-shrink: 0; background: var(--chip-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
 .appliance-icon svg, .appliance-icon img { width: 26px; height: 26px; stroke: var(--coral); }
 /* Mask glyph recolours the appliance SVG to the active theme's coral (orange in light, pink in dark) */
-.appliance-glyph { width: 26px; height: 26px; background-color: var(--coral); -webkit-mask: var(--glyph) center / contain no-repeat; mask: var(--glyph) center / contain no-repeat; }
+/* Icon URLs must be declared in this stylesheet, not in inline styles: Safari and
+   Chrome resolve a relative url() held in a custom property against the stylesheet
+   base (assets/css/), 404, and mask the glyph out to nothing. */
+.appliance-glyph { width: 26px; height: 26px; background-color: var(--coral); -webkit-mask-position: center; -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; mask-position: center; mask-size: contain; mask-repeat: no-repeat; }
+.glyph-washing-machine { -webkit-mask-image: url(../icons/washing-machine.svg); mask-image: url(../icons/washing-machine.svg); }
+.glyph-dishwasher { -webkit-mask-image: url(../icons/dishwasher.svg); mask-image: url(../icons/dishwasher.svg); }
+.glyph-dryer { -webkit-mask-image: url(../icons/dryer.svg); mask-image: url(../icons/dryer.svg); }
+.glyph-ev-charger { -webkit-mask-image: url(../icons/ev-charger.svg); mask-image: url(../icons/ev-charger.svg); }
+.glyph-pool-pump { -webkit-mask-image: url(../icons/pool-pump.svg); mask-image: url(../icons/pool-pump.svg); }
+.glyph-air-conditioner { -webkit-mask-image: url(../icons/air-conditioner.svg); mask-image: url(../icons/air-conditioner.svg); }
 .appliance-info h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem; }
 .appliance-info p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
 
