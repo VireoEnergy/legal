@@ -144,6 +144,29 @@
     }
     </script>
 
+    <!-- Structured Data - VideoObject -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "OnSun: See Your Solar Before It Happens",
+      "description": "OnSun forecasts your rooftop solar hour by hour, up to 7 days ahead, and matches each appliance's power profile to the sunniest window in your week. Load the dishwasher tonight and it runs in tomorrow's sun.",
+      "thumbnailUrl": "https://onsun.app/assets/video-poster.jpg",
+      "uploadDate": "2026-07-14",
+      "duration": "PT1M52S",
+      "contentUrl": "https://www.youtube.com/watch?v=HiJs6lR7ing",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/HiJs6lR7ing",
+      "publisher": {
+        "@type": "Organization",
+        "name": "OnSun",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://onsun.app/assets/logo-light.png"
+        }
+      }
+    }
+    </script>
+
     <!-- Social Media Meta Tags for LinkedIn, Twitter, Facebook -->
     <meta property="og:title" content="OnSun: Solar Forecast App | Stop Paying High Electricity Bills">
     <meta property="og:description" content="Still paying high electricity bills after installing solar? OnSun forecasts your solar output 7 days ahead and suggests the best times to run your appliances. Works with any solar system worldwide.">
@@ -182,7 +205,7 @@
             <a href="index.html" class="nav-logo">
                 <img class="logo-light" src="assets/logo-light.png" alt="OnSun solar forecast app logo" width="400" height="400" loading="lazy">
                 <img class="logo-dark" src="assets/logo-dark.png" alt="OnSun solar forecast app logo" width="400" height="400" loading="lazy">
-                <span>OnSun: Solar Forecast & Save</span>
+                <span><strong>OnSun</strong>: Solar Forecast & Save</span>
             </a>
             <div class="nav-links" id="nav-links">
                 <a href="#features" class="nav-link-item">Features</a>
@@ -271,6 +294,40 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                 Download OnSun Free
             </a>
+        </div>
+    </section>
+
+    <!-- Promo Video Section -->
+    <section class="promo-video" id="video">
+        <style>
+            .promo-video { padding: 3rem 1.5rem; background: var(--bg-secondary); }
+            .promo-video-container { max-width: 780px; margin: 0 auto; }
+            .promo-video-title { text-align: center; margin-bottom: 1.75rem; }
+            .promo-video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: var(--r-hero, 26px); overflow: hidden; background: #1a120b; box-shadow: 0 22px 52px rgba(28, 28, 30, 0.22), 0 8px 18px rgba(28, 28, 30, 0.10); }
+            [data-theme="dark"] .promo-video-frame { box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 20px rgba(255, 255, 255, 0.09); }
+            .promo-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+            .promo-video-poster { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; cursor: pointer; background: none; }
+            .promo-video-poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+            .promo-video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 92px; height: 92px; border-radius: 999px; background: var(--gradient-accent, linear-gradient(135deg, #ff6b47 0%, #ff9450 100%)); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-coral, 0 16px 40px rgba(255, 107, 71, 0.3)); transition: transform 0.2s ease; }
+            .promo-video-poster:hover .promo-video-play { transform: translate(-50%, -50%) scale(1.08); }
+            .promo-video-play svg { width: 34px; height: 34px; margin-left: 5px; fill: #ffffff; }
+            .promo-video-duration { position: absolute; left: 16px; bottom: 14px; background: rgba(26, 18, 11, 0.75); color: #ffffff; font-weight: 600; font-size: 0.85rem; padding: 4px 10px; border-radius: 8px; }
+        </style>
+        <div class="promo-video-container">
+            <div class="promo-video-title animate-on-scroll">
+                <div class="section-tag">Video</div>
+                <h2 class="section-title">See OnSun in Action</h2>
+            </div>
+            <div class="promo-video-frame animate-on-scroll">
+                <button type="button" class="promo-video-poster" aria-label="Play the OnSun promo video"
+                    onclick="gtag('event', 'video_play', {'event_category': 'engagement', 'event_label': 'promo_video'}); var vc = window.matchMedia('(max-width: 820px)').matches ? 1 : 0; this.parentElement.innerHTML = '&lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/HiJs6lR7ing?autoplay=1&amp;rel=0&amp;cc_load_policy=0&amp;controls=' + vc + '&quot; title=&quot;OnSun promo video&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;';">
+                    <img src="assets/video-poster.jpg" alt="OnSun promo video: see your solar before it happens" loading="lazy" width="1280" height="720">
+                    <span class="promo-video-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5.14v13.72c0 .8.87 1.3 1.56.9l11-6.86a1.05 1.05 0 0 0 0-1.8l-11-6.86c-.69-.4-1.56.1-1.56.9z"/></svg>
+                    </span>
+                    <span class="promo-video-duration" aria-hidden="true">1:52</span>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -370,7 +427,7 @@
         <div class="showcase-container">
             <div class="section-header animate-on-scroll">
                 <div class="section-tag">The App</div>
-                <h2 class="section-title">See OnSun in Action</h2>
+                <h2 class="section-title">How OnSun Works</h2>
                 <p class="section-subtitle">
                     Predicting your solar to save money
                 </p>
