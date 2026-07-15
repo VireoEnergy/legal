@@ -1,0 +1,29 @@
+# OnSun: Solar Forecast & Save
+
+> OnSun is a mobile app (iOS and Android) that forecasts a home's rooftop solar production up to 7 days ahead and recommends the best times to run appliances, so households use more of their own solar and buy less from the grid. Built by Vireo Energy Pty Ltd. Works with any grid-connected solar PV system worldwide, no hardware required.
+
+## About the product
+
+- Forecasts solar output at 15-minute to 1-hour resolution (depending on region) using national weather-service models, sun-position geometry, and a physics-based PV model. It does not use satellite imagery.
+- Recommends when to run flexible loads (washing machine, dishwasher, dryer, EV charger, pool pump, oven, air conditioner, space heater, dehumidifier) to hit the daily solar window.
+- Does NOT switch appliances on or off, needs no smart plugs, meter access, or inverter integration. Reminders arrive as notifications; the user presses start.
+- Free tier: 3-day forecast plus up to 2 appliances, free forever. OnSun Pro (optional subscription): full 7-day forecast plus unlimited appliances.
+- All savings figures shown are estimates, not guarantees.
+
+## Key pages
+
+- [Home](https://onsun.app/): what OnSun does, features, FAQ, download links.
+- [Solar Savings Guide](https://onsun.app/solar-guide.html): why solar bills stay high and how to fix it with self-consumption.
+- [Support](https://onsun.app/support.html): help, setup, and contact.
+
+## Blog
+
+- [How solar forecasting works](https://onsun.app/blog/how-solar-forecasting-works.html): the data and models behind a production forecast.
+- [Best time to run appliances with solar](https://onsun.app/blog/best-time-to-run-appliances-with-solar.html): finding the daily solar window.
+- [Feed-in tariff vs self-consumption](https://onsun.app/blog/feed-in-tariff-vs-self-consumption.html): why using your own solar beats exporting it.
+- [Blog index](https://onsun.app/blog/index.html): all articles.
+
+## Legal
+
+- [Privacy Policy](https://onsun.app/privacy-policy.html)
+- [Terms of Service](https://onsun.app/terms-of-service.html)
