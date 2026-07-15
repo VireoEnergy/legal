@@ -663,6 +663,7 @@ footer { padding: 3rem 2rem; background: var(--bg-secondary); border-top: 1px so
 .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
 .footer-links a:hover { color: var(--coral); }
 .footer-copyright { color: var(--text-muted); font-size: 0.875rem; }
+.footer-copyright a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 /* --------------------------------------------------------------------------
    16. Guide hero (support / solar-guide / blog over photo)
